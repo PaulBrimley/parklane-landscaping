@@ -52,14 +52,14 @@ interface ISvgIcon extends ComponentProps<any> {
   className?: string;
   d?: string;
   fill?: string;
-  height: string;
-  onClick?: () => any;
+  height?: string;
+  onClick?: (...args: any[]) => any;
   style?: Record<string, string>;
   type: SVGTypes;
   viewBox?: string;
-  width: string;
+  width?: string;
 }
-function SvgIcon({ className, d, fill, height, onClick, style, type, viewBox, width  }: ISvgIcon) {
+function SvgIcon({ className, d, fill, height = '100%', onClick, style, type, viewBox, width = '100%'  }: ISvgIcon) {
   const ref = useRef<SVGPathElement>(null);
   return (
     <svg

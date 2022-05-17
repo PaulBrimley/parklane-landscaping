@@ -37,7 +37,7 @@ export enum Paths {
   TRIMMING = '/services/trimming'
 }
 
-interface IRoute {
+export interface IRoute {
   active: boolean;
   children?: IRoute[];
   Component: ReactElement;
@@ -50,7 +50,7 @@ interface IRoute {
   prefetchImages: string[];
 }
 
-export const routArr: IRoute[] = [
+export const routeArr: IRoute[] = [
   {
     active: true,
     children: [],

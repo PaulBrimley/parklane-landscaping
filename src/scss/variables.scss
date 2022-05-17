@@ -1,3 +1,4 @@
+//css variables
 :root {
   //colors
   //common
@@ -31,13 +32,7 @@
   --tertiary-hover: rgb(198, 192, 192, 1);
   --tertiary-opaque: rgba(249, 247, 243, 0.8);
 
-  --mobile-width: 500px;
   --side-margin: 20px;
-
-
-
-
-
 
   @media screen and (min-width: 500px) {
     --side-margin: 20px;
@@ -49,3 +44,6 @@
     --side-margin: 70px;
   }
 }
+
+//scss variables
+$mobile-width: 500px;

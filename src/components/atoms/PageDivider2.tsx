@@ -2,9 +2,9 @@ import { ComponentProps } from 'react';
 import styled from 'styled-components';
 
 interface IPageDivider2 extends ComponentProps<any> {
-  color: string;
-  margin: string;
-  width: string;
+  color?: string;
+  margin?: string;
+  width?: string;
 }
 function PageDivider2(props: IPageDivider2) {
   return (

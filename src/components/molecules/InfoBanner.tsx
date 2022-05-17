@@ -145,7 +145,7 @@ const StyledInfoBanner = styled.div<{rightGradientCover?: string | null;}>`
     display: flex;
   }
 
-  @media (max-width: var(--mobile-width)px) {
+  @media (max-width: $mobile-width) {
     flex-direction: column;
     background-size: 160%;
     .slot-left {

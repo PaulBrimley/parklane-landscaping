@@ -14,6 +14,7 @@ export enum TransitionTypes {
 interface ITransition {
   duration?: number;
   ease?: EaseTypes;
+  onComplete?: (...args: any[]) => any;
   opacityEnd?: number;
   opacityStart?: number;
   xEnd?: number;
@@ -22,7 +23,7 @@ interface ITransition {
   yStart?: number;
   type?: TransitionTypes;
 }
-export default function useTransition({ duration = 1, ease = EaseTypes.EASE_IN_OUT, opacityEnd = 1, opacityStart = 1, xEnd = 0, xStart = 0, yEnd = 0, yStart = 0, type = TransitionTypes.SPRING }: ITransition): MotionProps {
+export default function useTransition({ duration = 1, ease = EaseTypes.EASE_IN_OUT, onComplete, opacityEnd = 1, opacityStart = 1, xEnd = 0, xStart = 0, yEnd = 0, yStart = 0, type = TransitionTypes.SPRING }: ITransition): MotionProps {
   return {
     animate: {
       opacity: opacityEnd,
@@ -34,6 +35,7 @@ export default function useTransition({ duration = 1, ease = EaseTypes.EASE_IN_O
       x: xStart,
       y: yStart
     },
+    onAnimationComplete: onComplete ?? undefined,
     transition: {
       duration,
       ease,
