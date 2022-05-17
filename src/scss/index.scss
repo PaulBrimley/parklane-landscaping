@@ -1,0 +1,24 @@
+@import '~react-toastify/dist/ReactToastify.min.css';
+
+@import './animations';
+@import './fonts/fonts';
+@import './variables';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#root {
+  height: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+}
+
+.italic {
+  font-style: italic;
+}
+.uppercase {
+  text-transform: uppercase;
+}

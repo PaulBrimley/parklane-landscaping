@@ -1,0 +1,51 @@
+:root {
+  //colors
+  //common
+  --black: #000000;
+  --danger: #ff081e;
+  --danger-hover: #d2081e;
+  --grey: #4d4d4d;
+  --grey-light: #f0f0f0;
+  --grey-medium: #5b5b5b;
+  --grey-medium-light: #dbdbdb;
+  --opaque: rgba(0, 0, 0, 0.8);
+  --transparent: rgba(0, 0, 0, 0);
+  --warn: #eef86c;
+  --white: #FFFFFF;
+  --white-opaque: rgba(255, 255, 255, 0.6);
+
+  //theme
+  --primary: rgba(235, 31, 39, 1);
+  --primary-hover: rgb(188, 25, 34, 1);
+  --primary-opaque: rgba(235, 31, 39, 0.8);
+  --quaternary: rgba(204, 191, 152, 1);
+  --quaternary-hover: rgb(160, 150, 120, 1);
+  --quaternary-opaque: rgba(204, 191, 152, 0.8);
+  --quinary: rgba(218, 208, 179, 1);
+  --quinary-hover: rgb(174,166,143);
+  --quinary-opaque: rgba(218, 208, 179, 0.8);
+  --secondary: rgba(187, 170, 117, 1);
+  --secondary-hover: rgb(140, 127, 86, 1);
+  --secondary-opaque: rgba(187, 170, 117, 0.8);
+  --tertiary: rgba(249, 247, 243, 1);
+  --tertiary-hover: rgb(198, 192, 192, 1);
+  --tertiary-opaque: rgba(249, 247, 243, 0.8);
+
+  --mobile-width: 500px;
+  --side-margin: 20px;
+
+
+
+
+
+
+  @media screen and (min-width: 500px) {
+    --side-margin: 20px;
+  }
+  @media screen and (min-width: 600px) {
+    --side-margin: 50px;
+  }
+  @media screen and (min-width: 700px) {
+    --side-margin: 70px;
+  }
+}
