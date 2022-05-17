@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const StyledToastContainer = styled(ToastContainer)`
   .Toastify__toast--error {
-    background-color: ${({theme}) => theme.colorPrimaryHover};
+    background-color: var(--primary-hover);
   }
   .Toastify__toast--success {
-    background-color: ${({theme}) => theme.colorQuaternary};
+    background-color: var(--quaternary);
   }
 `;
 export default StyledToastContainer;

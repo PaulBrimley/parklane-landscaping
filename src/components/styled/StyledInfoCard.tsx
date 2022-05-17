@@ -7,9 +7,9 @@ export const StyledInfoCard = styled.div`
   transition: all 0.2s;
 	.info-card-body {
 		flex: 1 1 auto;
-    border-bottom: 1px solid ${({theme}) => theme.colorSecondary};
-    border-left: 1px solid ${({theme}) => theme.colorSecondary};
-    border-right: 1px solid ${({theme}) => theme.colorSecondary};
+    border-bottom: 1px solid var(--secondary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
     transition: all 0.2s;
     .info-card-icon {
       display: flex;
@@ -18,13 +18,13 @@ export const StyledInfoCard = styled.div`
       height: 70px;
       padding: 25px 0 5px;
       svg {
-        fill: ${({theme}) => theme.colorSecondary};
+        fill: var(--secondary);
         transition: all 0.2s;
       }
     }
     .info-card-message {
 			font-weight: bold;
-			color: ${({theme}) => theme.colorPrimary};
+			color: var(--primary);
       text-align: center;
 			text-transform: uppercase;
       padding: 10px 20px 15px;
@@ -35,11 +35,11 @@ export const StyledInfoCard = styled.div`
   .info-card-header {
     font-size: 0.9em;
     font-weight: 300;
-    color: ${({theme}) => theme.colorWhite};
+    color: var(--white);
     text-transform: uppercase;
     padding: 10px 10px 7px;
     text-align: center;
-    background-color: ${({theme}) => theme.colorSecondary};
+    background-color: var(--secondary);
     transition: opacity 0.2s;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -47,18 +47,18 @@ export const StyledInfoCard = styled.div`
   }
   
   &:hover {
-    box-shadow: 0 0 20px ${({theme}) => theme.colorSecondary};
-    background-color: ${({theme}) => theme.colorWhite};
+    box-shadow: 0 0 20px var(--secondary);
+    background-color: var(--white);
     .info-card-header {
-      background-color: ${({theme}) => theme.colorPrimary};
+      background-color: var(--primary);
     }
 		.info-card-body {
-      border-bottom: 1px solid ${({theme}) => theme.colorPrimary};
-      border-left: 1px solid ${({theme}) => theme.colorPrimary};
-      border-right: 1px solid ${({theme}) => theme.colorPrimary};
+      border-bottom: 1px solid var(--primary);
+      border-left: 1px solid var(--primary);
+      border-right: 1px solid var(--primary);
       .info-card-icon {
         svg {
-          fill: ${({theme}) => theme.colorPrimary};
+          fill: var(--primary);
         }
       }
       .info-card-message {

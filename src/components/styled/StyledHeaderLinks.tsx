@@ -10,11 +10,11 @@ const StyledHeaderLinks = styled.div`
     .link-inner {
       padding: 0 4px;
       position: relative;
-      border-bottom: 1px solid ${({theme}) => theme.colorWhiteOpaque};
+      border-bottom: 1px solid var(--white-opaque);
       flex: 1;
       &:after {
         position: absolute;
-        border-bottom: 4px solid ${({theme}) => theme.colorWhiteOpaque};
+        border-bottom: 4px solid var(--white-opaque);
         content: '';
         display: block;
         margin-left: 49.9%;

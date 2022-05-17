@@ -11,7 +11,7 @@ const StyledModalBody = styled.div`
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb {
-    background: ${({theme}) => theme.colorPrimary};
+    background: var(--primary);
     border-radius: 10px;
   }
 `;

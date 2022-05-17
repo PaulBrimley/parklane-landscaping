@@ -4,7 +4,7 @@ const StyledInfoBannerAction = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 20px 120px;
-  @media (max-width: ${({theme}) => theme.mobileWidth}px) {
+  @media (max-width: $mobile-width) {
     justify-content: flex-start;
   }
 `;

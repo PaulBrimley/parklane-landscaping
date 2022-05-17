@@ -12,11 +12,11 @@ const StyledMenuLinks = styled.div`
       color: inherit;
       text-transform: uppercase;
       text-decoration: none;
-      border-bottom: 1px solid ${({theme}) => theme.colorTransparent};
+      border-bottom: 1px solid var(--transparent);
       line-height: 1.4em;
       font-weight: 400;
       &.active {
-        border-bottom: 1px solid ${({theme}) => theme.colorWhiteOpaque};
+        border-bottom: 1px solid var(--white-opaque);
         font-weight: 700;
       }
     }

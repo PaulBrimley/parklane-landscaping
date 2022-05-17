@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@reach/router';
 import styled from 'styled-components';
 
 const StyledQuickListItem = styled(Link)`
@@ -12,14 +12,14 @@ const StyledQuickListItem = styled(Link)`
     justify-content: center;
     height: 70px;
     svg {
-      fill: ${({theme}) => theme.colorSecondary};
+      fill: var(--secondary);
       transition: all 0.2s;
     }
   }
   .title {
     font-size: 1em;
     font-weight: 700;
-    color: ${({ theme }) => theme.colorSecondary};
+    color: var(--secondary);
     text-transform: uppercase;
     padding: 2px 10px;
     text-align: center;
@@ -28,11 +28,11 @@ const StyledQuickListItem = styled(Link)`
   &:hover {
     .icon {
       svg {
-        fill: ${({theme}) => theme.colorPrimary};
+        fill: var(--primary);
       }
     }
     .title {
-      color: ${({ theme }) => theme.colorPrimary};
+      color: var(--primary);
     }
   }
 `;
