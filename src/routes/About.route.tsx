@@ -14,25 +14,15 @@ import InfoBanner from '../components/molecules/InfoBanner';
 import InfoBannerLeft from '../components/molecules/InfoBannerLeft';
 import InfoBannerRight from '../components/molecules/InfoBannerRight';
 import PageDivider1 from '../components/atoms/PageDivider1';
-import ParallaxStripe from '../components/atoms/ParallaxStripe';
 import StyledInfoBannerMessage from '../components/styled/StyledInfoBannerMessage';
 import StyledInfoBodyMessage from '../components/styled/StyledInfoBodyMessage';
 
 /** images **/
-const {
-  imgCarnival,
-  imgMonument6,
-  imgParklaneFamily,
-  imgPictureFrame,
-  imgTrees2,
-  logoMain
-} = images;
+const { imgCarnival, imgMonument6, imgParklaneFamily, imgPictureFrame } = images;
 
-interface IAboutRouteProps extends ComponentProps<any> {
-  path: string;
-}
+interface IAboutRouteProps extends ComponentProps<any> {}
 function AboutRoute({ ...otherProps }: ComponentProps<any>) {
-  const {isMobile, width} = useAppSelector(store => store.app);
+  const { isMobile, width } = useAppSelector(store => store.app);
   const { offset } = useParallaxEffect({ strength: 0.2 });
 
   function calcBackgroundSize() {
@@ -139,7 +129,6 @@ function AboutRoute({ ...otherProps }: ComponentProps<any>) {
         <li>Parklane Landscaping is happy to present key HOA educational presentations.</li>
         <li>Parklane is easy to work with, facilitating transparent communication between the board and property manager, is highly-skilled in project management, budget- conscious and timely.</li>
       </ul>
-
 
       {/*<div className="about-info-images">
           <img src={imgMonument6} alt="Estates at Bridgewood" />

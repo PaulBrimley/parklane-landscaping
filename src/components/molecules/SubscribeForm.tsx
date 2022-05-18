@@ -117,5 +117,163 @@ function SubscribeForm({ modalID }: ISubscribeForm) {
     </StyledSubscribeForm>
   );
 }
-const StyledSubscribeForm = styled.div``;
+const StyledSubscribeForm = styled.div`
+  padding: 40px 70px;
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    background-color: var(--primary);
+    padding: 5px 8px 7px;
+    margin: 0 auto;
+    .contact-form-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin: 0;
+      &:before {
+        content: '';
+        display: flex;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border: 1px solid var(--white);
+        transition: border 0.25s, box-shadow 0.25s;
+      }
+      &:checked:before {
+        background: var(--primary);
+        box-shadow: inset 0 0 0 1px #fff;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .contact-form-checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      margin: 7px 0 2px;
+      color: var(--white);
+      font-size: 1.1em;
+      font-weight: 400;
+      cursor: pointer;
+      span {
+        padding-left: 5px;
+      }
+    }
+    .contact-form-input {
+      width: 100%;
+      padding: 8px;
+      margin: 2px 0;
+      border: none;
+      background-color: #fff;
+      box-sizing: border-box;
+      box-shadow: 0 0 2px var(--transparent);
+      color: var(--primary);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 1em;
+      font-weight: 200;
+      outline: none;
+      transition: box-shadow 0.25s, border-bottom 0.25s;
+      &:focus {
+        box-shadow: 0 0 2px var(--grey-medium-light);
+        &.hasError {
+          box-shadow: 0 0 2px var(--danger);
+        }
+      }
+    }
+    .contact-form-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 5px;
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .loading {
+        height: 30px;
+        width: 30px;
+        color: var(--white);
+        animation: rotation 2s infinite linear;
+      }
+      .submit-form-button {
+        color: var(--white);
+        background-color: var(--secondary);
+        &:hover {
+          background-color: var(--secondary-opaque);
+        }
+      }
+    }
+  }
+  .header {
+    font-weight: 700;
+    color: var(--black);
+    text-transform: uppercase;
+  }
+  .news-letters {
+    display: flex;
+    justify-content: space-between;
+    div {
+      flex: 32% 0 0;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .receive-emails {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--black);
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .separator {
+    border-bottom: 4px solid red;
+    margin: 20px auto;
+  }
+  @media (max-width: 800px) {
+    padding: 40px;
+    .receive-emails {
+      font-size: 1.2em;
+    }
+    .subscribe-now-header {
+      font-size: 4.5em;
+    }
+  }
+  @media (max-width: 700px) {
+    .receive-emails {
+      font-size: 1.1em;
+    }
+    .subscribe-now-header {
+      font-size: 4em;
+    }
+  }
+  @media (max-width: 600px) {
+    .receive-emails {
+      font-size: 0.9em;
+    }
+    .subscribe-now-header {
+      font-size: 3em;
+    }
+  }
+  @media (max-width: 500px) {
+    padding: 20px;
+    .news-letters {
+      flex-direction: column;
+      div:nth-child(n + 2) {
+        display: none;
+      }
+    }
+    .receive-emails {
+      font-size: 0.8em;
+    }
+    .subscribe-now-header {
+      font-size: 2.5em;
+    }
+  }
+`;
 export default SubscribeForm;

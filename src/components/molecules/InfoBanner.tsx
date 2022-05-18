@@ -21,8 +21,8 @@ interface IInfoBanner extends ComponentProps<any> {
     rightGradientCover?: string | null;
   },
   className?: string;
-  slotLeft: ReactElement;
-  slotRight: ReactElement;
+  slotLeft?: ReactElement;
+  slotRight?: ReactElement;
   style: Record<string, string>
 }
 function InfoBanner({ children, className, config, slotLeft, slotRight, style }: IInfoBanner) {
