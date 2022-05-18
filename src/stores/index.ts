@@ -10,7 +10,12 @@ const store = configureStore({
     app: appReducer,
     email: emailReducer,
     img: imgReducer
-  }
+  },
+  middleware: getDefaultMiddleware => getDefaultMiddleware({
+    thunk: {
+      extraArgument: ""
+    }
+  })
 });
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

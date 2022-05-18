@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 const StyledInfoBannerMessage = styled.div`
   color: var(--white);
   text-align: right;
@@ -21,7 +22,7 @@ const StyledInfoBannerMessage = styled.div`
     white-space: nowrap;
     font-size: 2.8em;
   }
-  @media (max-width: $mobile-width) {
+  @media (max-width: ${({ theme }): number => theme.mobileWidth}px) {
     text-align: left;
   }
 `;

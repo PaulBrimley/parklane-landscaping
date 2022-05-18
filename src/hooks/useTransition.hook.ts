@@ -17,13 +17,13 @@ interface ITransition {
   onComplete?: (...args: any[]) => any;
   opacityEnd?: number;
   opacityStart?: number;
-  xEnd?: number;
-  xStart?: number;
-  yEnd?: number;
-  yStart?: number;
+  xEnd?: string;
+  xStart?: string;
+  yEnd?: string;
+  yStart?: string;
   type?: TransitionTypes;
 }
-export default function useTransition({ duration = 1, ease = EaseTypes.EASE_IN_OUT, onComplete, opacityEnd = 1, opacityStart = 1, xEnd = 0, xStart = 0, yEnd = 0, yStart = 0, type = TransitionTypes.SPRING }: ITransition): MotionProps {
+export default function useTransition({ duration = 1, ease = EaseTypes.EASE_IN_OUT, onComplete, opacityEnd = 1, opacityStart = 1, xEnd = '0', xStart = '0', yEnd = '0', yStart = '0', type = TransitionTypes.TWEEN }: ITransition): MotionProps {
   return {
     animate: {
       opacity: opacityEnd,

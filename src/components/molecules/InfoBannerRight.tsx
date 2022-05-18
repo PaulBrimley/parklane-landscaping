@@ -10,7 +10,7 @@ interface IInfoBannerRight extends ComponentProps<any> {
 function InfoBannerRight({ children, className }: IInfoBannerRight) {
   const transition = useTransition({
     opacityStart: 0,
-    xStart: 10
+    xStart: '10px'
   });
   return <motion.div className={className} {...transition}>{children}</motion.div>;
 }

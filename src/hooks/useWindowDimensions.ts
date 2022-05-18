@@ -1,19 +1,28 @@
-import { useState, useEffect } from 'react';
+import { RefObject, useState, useEffect } from 'react';
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
+interface IWindowDimensions {
+  height: number;
+  width: number;
+}
+function getWindowDimensions(ref: RefObject<HTMLElement>): IWindowDimensions {
+  let width = window?.innerWidth;
+  let height = window?.innerHeight;
+  if (ref?.current) {
+    width = ref.current.clientWidth;
+    height = ref.current.clientHeight;
+  }
   return {
     width,
     height
   };
 }
 
-export default function useWindowDimensions() {
-  const [ windowDimensions, setWindowDimensions ] = useState( getWindowDimensions() );
+export default function useWindowDimensions(ref: RefObject<HTMLElement>): IWindowDimensions {
+  const [ windowDimensions, setWindowDimensions ] = useState<IWindowDimensions>( getWindowDimensions(ref) );
 
   useEffect(() => {
     function handleResize() {
-      setWindowDimensions( getWindowDimensions() );
+      setWindowDimensions( getWindowDimensions(ref) );
     }
 
     window.addEventListener( 'resize', handleResize );

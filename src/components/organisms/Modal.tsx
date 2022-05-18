@@ -26,10 +26,10 @@ function Modal({ children, modalID }: IModal) {
   });
 
   useEffect(() => {
-    if (!modals.has(modalID)) dispatch(registerModal(modalID));
+    if (!Object.prototype.hasOwnProperty.call(modals, modalID)) dispatch(registerModal(modalID));
   }, [modalID]);
   useEffect(() => {
-    if (modals.has(modalID)) setModalOpen(modals.get(modalID) ?? false);
+    if (Object.prototype.hasOwnProperty.call(modals, modalID)) setModalOpen(modals[modalID] ?? false);
   }, [modals]);
   useEffect(() => {
     let type = 'auto';
@@ -109,7 +109,7 @@ const StyledModal = styled.div`
     z-index: 2001;
     background-color: var(--opaque);
   }
-  @media (max-width: $mobile-width) {
+  @media (max-width: ${({ theme }): number => theme.mobileWidth}px) {
     .modal {
       width: auto;
       margin: 20px;

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Link } from '@reach/router';
 import styled from 'styled-components';
 
+/** routes **/
 import { Paths as ReactPaths } from '../../routes/Routes';
 
 interface IButton extends ComponentProps<any> {
@@ -12,9 +13,9 @@ interface IButton extends ComponentProps<any> {
   fontWeight?: string;
   height?: string;
   margin?: string;
-  onClick: (e: MouseEvent) => any;
+  onClick?: (e: MouseEvent) => any;
   padding?: string;
-  shadowColor?: string;
+  shadow?: string;
   width?: string;
 }
 interface ILinkButton extends IButton {
@@ -47,7 +48,7 @@ const StyledButton = styled.span<IButton>`
   justify-content: center;
   align-items: center;
   background: inherit;
-  box-shadow: 2px 2px 2px ${({ shadowColor }) => shadowColor ?? 'var(--grey-medium)'};
+  box-shadow: 2px 2px 2px ${({ shadow }) => shadow ?? 'var(--grey-medium)'};
   cursor: pointer;
   font-size: ${({ fontSize }) => fontSize ?? 'inherit'};
   font-weight: ${({ fontWeight }) => fontWeight ?? 'inherit'};
@@ -58,7 +59,7 @@ const StyledButton = styled.span<IButton>`
   width: ${({ width }) => width ?? 'auto'};
   white-space: nowrap;
   &:active {
-    box-shadow: 1px 1px 1px ${({ shadowColor }) => shadowColor ?? 'var(--grey-medium)'};
+    box-shadow: 1px 1px 1px ${({ shadow }) => shadow ?? 'var(--grey-medium)'};
   }
   &.disabled {
     color: var(--grey-light);

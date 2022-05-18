@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
+import Theme from '../theme';
 
 interface ICompanyInfo {
   city: string;
@@ -15,8 +15,7 @@ interface IAppState {
   companyInfo: ICompanyInfo;
   isMobile: boolean;
   menuCollapsed: boolean;
-  mobileWidth: number;
-  modals: Map<string, boolean>;
+  modals: Record<string, boolean>;
   width: number;
 }
 const initialState: IAppState = {
@@ -32,8 +31,7 @@ const initialState: IAppState = {
   },
   isMobile: false,
   menuCollapsed: true,
-  mobileWidth: 500,
-  modals: new Map(),
+  modals: {},
   width: 0
 };
 export const appSlice = createSlice({
@@ -41,16 +39,20 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     registerModal(state: IAppState, action: PayloadAction<string>) {
-      state.modals.set(action?.payload, false);
+      state.modals[action?.payload] = false;
     },
     setMenuCollapsed(state: IAppState, action: PayloadAction<boolean>) {
       state.menuCollapsed = action?.payload;
     },
     setModalStatus(state: IAppState, action: PayloadAction<{ modalID: string; open: boolean; }>) {
-      state.modals.set(action?.payload?.modalID, action?.payload?.open);
+      state.modals[action?.payload?.modalID] = action?.payload?.open;
+    },
+    setWidth(state: IAppState, action: PayloadAction<number>) {
+      state.isMobile = action?.payload <= Theme.mobileWidth;
+      state.width = action?.payload;
     }
   },
   extraReducers: {}
 });
-export const { registerModal, setMenuCollapsed, setModalStatus } = appSlice.actions;
+export const { registerModal, setMenuCollapsed, setModalStatus, setWidth } = appSlice.actions;
 export default appSlice.reducer;

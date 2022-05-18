@@ -11,7 +11,7 @@ const StyledModal = styled.div`
   margin: 4px;
   background-color: #FFFFFF;
   overflow: hidden;
-  @media (max-width: $mobile-width) {
+  @media (max-width: ${({ theme }): number => theme.mobileWidth}px) {
     max-width: 100vw;
     max-height: 100vw;
   }

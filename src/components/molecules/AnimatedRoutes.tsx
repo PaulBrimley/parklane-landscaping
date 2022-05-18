@@ -12,7 +12,7 @@ function AnimatedRoutes({ children, exitBeforeEnter = true, initial = false }: I
     <Location>
       {({ location }) => (
         <AnimatePresence exitBeforeEnter={exitBeforeEnter} initial={initial}>
-          <StyledRoute location={location}>{children}</StyledRoute>
+          <StyledRoute primary={false} location={location}>{children}</StyledRoute>
         </AnimatePresence>
       )}
     </Location>

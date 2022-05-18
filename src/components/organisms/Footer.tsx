@@ -1,6 +1,7 @@
 import { Link } from '@reach/router';
 import styled from 'styled-components';
 
+/** routes **/
 import { Paths as ReactPaths, routeArr } from '../../routes/Routes';
 
 /** hooks **/
@@ -150,7 +151,7 @@ const StyledFooter = styled.div`
       z-index: -1;
     }
   }
-  @media (max-width: $mobile-width) {
+  @media (max-width: ${({ theme }): number => theme.mobileWidth}px) {
     .footer-bottom {
       justify-content: center;
       padding: 20px;

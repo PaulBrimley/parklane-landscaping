@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-
+import { Dispatch, createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from './index';
 /** images **/
 import facebookLogo from '../assets/img/icon-facebook.png';
 import grassDark from '../assets/img/grass-dark.png';
@@ -61,20 +61,20 @@ import logoMain from '../assets/img/logo-main.png';
 import logoMain2 from '../assets/img/logo-main-2.png';
 import twitterLogo from '../assets/img/icon-twitter.png';
 
-export const addPrefetchedImages = createAsyncThunk<Record<string, HTMLImageElement>, string[], { state: IImgState }>('img/addPrefetchedImages', async (images: string[], { getState }): Promise<Record<string, HTMLImageElement>> => {
-  const state = getState();
-  const newImagesObj: Record<string, HTMLImageElement> = {};
+export const addPrefetchedImages = createAsyncThunk<Record<string, boolean>, string[]>('img/addPrefetchedImages', async (images: string[], { getState }): Promise<Record<string, boolean>> => {
+  const { img } = getState() as RootState;
+  const newImagesObj: Record<string, boolean> = {};
   const batchSize = 4;
   let count = 0;
   let promises = [];
   for (const image of images) {
-    if (state.prefetchedImages[image] || newImagesObj[image] || !image) continue;
+    if (img.prefetchedImages[image] || newImagesObj[image] || !image) continue;
     promises.push(prefetchImage(image));
     count++;
     if (count === batchSize) {
       const responses = await Promise.allSettled(promises);
       responses.forEach(response => {
-        if (response?.status === 'fulfilled' && response?.value?.src) newImagesObj[response.value.src] = response.value;
+        if (response?.status === 'fulfilled' && response?.value?.src) newImagesObj[response.value.src] = true;
       });
       count = 0;
       promises = [];
@@ -98,7 +98,7 @@ function prefetchImage(imgSrc: string): Promise<HTMLImageElement> {
 }
 
 export const images = {
-  facebookLogo,
+  facebookLogo: facebookLogo,
   grassDark,
   grassWhite,
   imgCarnival,

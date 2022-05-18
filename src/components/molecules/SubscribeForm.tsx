@@ -7,7 +7,7 @@ import { unwrapResult } from '@reduxjs/toolkit';
 
 /** stores **/
 import { sendEmail } from '../../stores/Email.store';
-import { setModalOpen } from '../../stores/App.store';
+import { setModalStatus } from '../../stores/App.store';
 
 /** hooks **/
 import { useAppDispatch, useAppSelector } from '../../hooks/useStore.hook';
@@ -21,8 +21,10 @@ import { Loader4 } from 'styled-icons/remix-line';
 import { images } from '../../stores/Img.store';
 const { imgNewsLetter1, imgNewsLetter2, imgNewsLetter3 } = images;
 
-interface ISubscribeForm extends ComponentProps<any> {}
-function SubscribeForm({ ...otherProps }: ISubscribeForm) {
+interface ISubscribeForm extends ComponentProps<any> {
+  modalID?: string;
+}
+function SubscribeForm({ modalID }: ISubscribeForm) {
   const dispatch = useAppDispatch();
   const { templateIDs } = useAppSelector(store => store.email);
   const [checkbox, setCheckbox] = useState(false);
@@ -31,7 +33,6 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
     name: ''
   });
   const [submitting, setSubmitting] = useState(false);
-
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setForm({
@@ -44,12 +45,14 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
     setSubmitting(true);
     try {
       validateForm();
-      await dispatch(sendEmail({
-        form,
-        templateID: templateIDs.SUBSCRIPTION_TEMPLATE_ID
-      })).then(unwrapResult);
+      await dispatch(
+        sendEmail({
+          form,
+          templateID: templateIDs.SUBSCRIPTION_TEMPLATE_ID
+        })
+      ).then(unwrapResult);
       toast.success('Contact request submitted successfully');
-      dispatch(setModalOpen(false));
+      if (modalID) dispatch(setModalStatus({ modalID, open: false }));
       resetForm();
     } catch (err: any) {
       if (err instanceof Error) toast.error(err.message);
@@ -92,7 +95,7 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
         </div>
       </div>
 
-      <PageDivider2 margin="20px auto"/>
+      <PageDivider2 margin="20px auto" />
 
       <form className="contact-form">
         <input className="contact-form-input" placeholder="NAME" name="name" value={form.name} onChange={handleChange} />
@@ -114,7 +117,5 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
     </StyledSubscribeForm>
   );
 }
-const StyledSubscribeForm = styled.div`
-
-`;
+const StyledSubscribeForm = styled.div``;
 export default SubscribeForm;

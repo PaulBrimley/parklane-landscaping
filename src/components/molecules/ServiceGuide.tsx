@@ -2,6 +2,7 @@ import { ComponentProps } from 'react';
 import { Link } from '@reach/router';
 import styled from 'styled-components';
 
+/** routes **/
 import { Paths as ReactPaths } from '../../routes/Routes';
 
 /** components **/
@@ -9,8 +10,8 @@ import { StyledInfoCardLink } from '../styled/StyledInfoCard';
 import SVGIcon, { SVGTypes } from '../atoms/SVGIcon';
 
 interface IServiceGuide extends ComponentProps<any> {
-  className: string;
-  style: Record<string, string>;
+  className?: string;
+  style?: Record<string, string>;
 }
 function ServiceGuide({ className, style }: IServiceGuide) {
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState, RefObject } from 'react';
 
-export default function useParallaxEffect({ scrollRef, strength = 0 }: { scrollRef: RefObject<HTMLElement>; strength: number }) {
+export default function useParallaxEffect({ scrollRef, strength = 0 }: { scrollRef?: RefObject<HTMLElement>; strength: number }) {
   strength = Math.min(Math.max(strength, -1), 1);
   const [offset, setOffset] = useState({
     x: 0,

@@ -6,18 +6,18 @@ import styled from 'styled-components';
 import useTransition from '../../hooks/useTransition.hook';
 
 interface IInfoBannerLeft extends ComponentProps<any> {
-  action: ReactElement;
+  action?: ReactElement;
   className?: string;
   message: ReactElement;
 }
 function InfoBannerLeft({ action, className, message }: IInfoBannerLeft) {
   const messageTransition = useTransition({
     opacityStart: 0,
-    yStart: 10
+    yStart: '10px'
   });
   const actionTransition = useTransition({
     opacityStart: 0,
-    xStart: -10
+    xStart: '-10px'
   });
 
   return (

@@ -2,9 +2,9 @@ import { ComponentProps } from 'react';
 import styled from 'styled-components';
 
 interface IWeatherIcon extends ComponentProps<any> {
-  fill: string;
+  fill?: string;
 }
-function WeatherIcon({ fill }: IWeatherIcon) {
+function WeatherIcon({ fill = 'var(--black)' }: IWeatherIcon) {
   return (
     <StyledWeatherIcon id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 475.71 148.28">
       <path fill={fill} d="M185.45,61.23a15.51,15.51,0,0,1,15.9-15.85c5.46,0,9.66,2,12.3,6l-2.51,1.82a11.31,11.31,0,0,0-9.79-4.87c-7.24,0-12.48,5.51-12.48,12.89s5.24,12.89,12.48,12.89a11.88,11.88,0,0,0,10.2-5.19l2.55,1.77a14.85,14.85,0,0,1-12.75,6.38A15.51,15.51,0,0,1,185.45,61.23Z" />

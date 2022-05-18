@@ -1,6 +1,13 @@
 import Axios from 'axios';
 Axios.defaults.withCredentials = true;
 
+export interface IServerResponse {
+  config: any;
+  data: any;
+  error: any;
+  status: number;
+  success: boolean;
+}
 export enum Paths {
   EMAIL_SEND = 'https://api.emailjs.com/api/v1.0/email/send'
 }

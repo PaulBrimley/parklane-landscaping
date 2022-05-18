@@ -12,15 +12,15 @@ function PageDivider1() {
 const StyledPageDivider1 = styled.div`
   .bottom {
     height: 15px;
-    background-color: ${({theme}) => theme.colorQuinary};
+    background-color: var(--quinary);
   }
   .middle {
     height: 20px;
-    background-color: ${({theme}) => theme.colorQuaternary};
+    background-color: var(--quaternary);
   }
   .top {
     height: 45px;
-    background-color: ${({theme}) => theme.colorSecondary};
+    background-color: var(--secondary);
   }
 `;
 export default PageDivider1;

@@ -71,7 +71,7 @@ const StyledServiceList = styled.div`
       grid-template-columns: 1fr;
     }
   }
-  @media (max-width: $mobile-width) {
+  @media (max-width: ${({ theme }): number => theme.mobileWidth}px) {
     .list {
       margin: 0 20px 50px;
       white-space: normal;
