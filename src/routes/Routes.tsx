@@ -1,5 +1,6 @@
 import React, { ReactElement, useEffect, useMemo } from 'react';
-import { Redirect, useLocation } from '@reach/router';
+import { Navigate, Route, Routes as RRoutes, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { unwrapResult } from '@reduxjs/toolkit';
 
 /** stores **/
@@ -12,7 +13,6 @@ import { useAppDispatch } from '../hooks/useStore.hook';
 import { SVGTypes } from '../components/atoms/SVGIcon';
 
 /** routes **/
-import AnimatedRoutes from '../components/molecules/AnimatedRoutes';
 import AboutRoute from './About.route';
 import ContactRoute from './Contact.route';
 import FenceRoute from './Fence.route';
@@ -63,7 +63,8 @@ export const routeArr: IRoute[] = [
   {
     active: true,
     children: [],
-    Component: <HomeRoute key={Paths.HOME} path={Paths.HOME} />,
+    Component: <Route key={Paths.HOME} path={Paths.HOME} element={<HomeRoute />} />,
+    //Component: <HomeRoute key={Paths.HOME} path={Paths.HOME} />,
     name: 'Home',
     path: Paths.HOME,
     prefetchImages: [imgGrass, imgHome, logoAnniversary]
@@ -71,7 +72,8 @@ export const routeArr: IRoute[] = [
   {
     active: true,
     children: [],
-    Component: <AboutRoute key={Paths.ABOUT} path={Paths.ABOUT} />,
+    Component: <Route key={Paths.ABOUT} path={Paths.ABOUT} element={<AboutRoute />} />,
+    //Component: <AboutRoute key={Paths.ABOUT} path={Paths.ABOUT} />,
     name: 'About',
     path: Paths.ABOUT,
     prefetchImages: [imgCarnival, imgMonument6, imgParklaneFamily, imgPictureFrame, imgTrees2, logoMain]
@@ -81,7 +83,8 @@ export const routeArr: IRoute[] = [
     children: [
       {
         active: true,
-        Component: <MaintenanceRoute key={Paths.MAINTENANCE} path={Paths.MAINTENANCE} />,
+        Component: <Route key={Paths.MAINTENANCE} path={Paths.MAINTENANCE} element={<MaintenanceRoute />} />,
+        //Component: <MaintenanceRoute key={Paths.MAINTENANCE} path={Paths.MAINTENANCE} />,
         displayInHeader: true,
         headerLinkLines: ['HOA', 'Maintenance'],
         icon: SVGTypes.LAWN_MOWER,
@@ -92,7 +95,8 @@ export const routeArr: IRoute[] = [
       },
       {
         active: true,
-        Component: <IrrigationRoute key={Paths.IRRIGATION} path={Paths.IRRIGATION} />,
+        Component: <Route key={Paths.IRRIGATION} path={Paths.IRRIGATION} element={<IrrigationRoute />} />,
+        //Component: <IrrigationRoute key={Paths.IRRIGATION} path={Paths.IRRIGATION} />,
         displayInHeader: true,
         headerLinkLines: ['HOA Licensed', 'Irrigation'],
         icon: SVGTypes.HOSE,
@@ -103,7 +107,8 @@ export const routeArr: IRoute[] = [
       },
       {
         active: true,
-        Component: <LandscapeRoute key={Paths.LANDSCAPE} path={Paths.LANDSCAPE} />,
+        Component: <Route key={Paths.LANDSCAPE} path={Paths.LANDSCAPE} element={<LandscapeRoute />} />,
+        //Component: <LandscapeRoute key={Paths.LANDSCAPE} path={Paths.LANDSCAPE} />,
         displayInHeader: true,
         headerLinkLines: ['HOA', 'Landscaping'],
         icon: SVGTypes.LANDSCAPE,
@@ -114,7 +119,8 @@ export const routeArr: IRoute[] = [
       },
       {
         active: true,
-        Component: <MonumentRoute key={Paths.MONUMENT} path={Paths.MONUMENT} />,
+        Component: <Route key={Paths.MONUMENT} path={Paths.MONUMENT} element={<MonumentRoute />} />,
+        //Component: <MonumentRoute key={Paths.MONUMENT} path={Paths.MONUMENT} />,
         displayInHeader: true,
         headerLinkLines: ['HOA', 'Monuments'],
         icon: SVGTypes.MONUMENT,
@@ -125,7 +131,8 @@ export const routeArr: IRoute[] = [
       },
       {
         active: true,
-        Component: <MonumentRepairRoute key={Paths.MONUMENT_REPAIR} path={Paths.MONUMENT_REPAIR} />,
+        Component: <Route key={Paths.MONUMENT_REPAIR} path={Paths.MONUMENT_REPAIR} element={<MonumentRepairRoute />} />,
+        //Component: <MonumentRepairRoute key={Paths.MONUMENT_REPAIR} path={Paths.MONUMENT_REPAIR} />,
         displayInHeader: true,
         headerLinkLines: ['HOA', 'Masonry'],
         icon: SVGTypes.MASONRY,
@@ -136,7 +143,8 @@ export const routeArr: IRoute[] = [
       },
       {
         active: true,
-        Component: <FenceRoute key={Paths.FENCE} path={Paths.FENCE} />,
+        Component: <Route key={Paths.FENCE} path={Paths.FENCE} element={<FenceRoute />} />,
+        //Component: <FenceRoute key={Paths.FENCE} path={Paths.FENCE} />,
         displayInHeader: true,
         headerLinkLines: ['HOA Fence', 'Installation'],
         icon: SVGTypes.FENCE,
@@ -147,7 +155,8 @@ export const routeArr: IRoute[] = [
       },
       {
         active: true,
-        Component: <LightingRoute key={Paths.LIGHTING} path={Paths.LIGHTING} />,
+        Component: <Route key={Paths.LIGHTING} path={Paths.LIGHTING} element={<LightingRoute />} />,
+        //Component: <LightingRoute key={Paths.LIGHTING} path={Paths.LIGHTING} />,
         displayInHeader: true,
         headerLinkLines: ['HOA Landscape', 'Lighting'],
         icon: SVGTypes.LIGHT_BULB,
@@ -158,7 +167,8 @@ export const routeArr: IRoute[] = [
       },
       {
         active: true,
-        Component: <TrimmingRoute key={Paths.TRIMMING} path={Paths.TRIMMING} />,
+        Component: <Route key={Paths.TRIMMING} path={Paths.TRIMMING} element={<TrimmingRoute />} />,
+        //Component: <TrimmingRoute key={Paths.TRIMMING} path={Paths.TRIMMING} />,
         displayInHeader: true,
         headerLinkLines: ['HOA Tree', 'Pruning'],
         icon: SVGTypes.TREES,
@@ -168,7 +178,8 @@ export const routeArr: IRoute[] = [
         prefetchImages: [imgLeaves, imgTrees1, imgTreeTrimming]
       }
     ],
-    Component: <ServicesRoute key={Paths.SERVICES} path={Paths.SERVICES} />,
+    Component: <Route key={Paths.SERVICES} path={Paths.SERVICES} element={<ServicesRoute />} />,
+    //Component: <ServicesRoute key={Paths.SERVICES} path={Paths.SERVICES} />,
     name: 'Services',
     path: Paths.SERVICES,
     prefetchImages: [imgGuyPlanting2, imgGuyTeaching2]
@@ -176,7 +187,8 @@ export const routeArr: IRoute[] = [
   {
     active: true,
     children: [],
-    Component: <SubscribeRoute key={Paths.SUBSCRIBE} path={Paths.SUBSCRIBE} />,
+    Component: <Route key={Paths.SUBSCRIBE} path={Paths.SUBSCRIBE} element={<SubscribeRoute />} />,
+    //Component: <SubscribeRoute key={Paths.SUBSCRIBE} path={Paths.SUBSCRIBE} />,
     name: 'Get Informed',
     path: Paths.SUBSCRIBE,
     prefetchImages: [imgGuyPlanting1, imgNewsLetter1, imgNewsLetter2, imgNewsLetter3]
@@ -184,7 +196,8 @@ export const routeArr: IRoute[] = [
   {
     active: true,
     children: [],
-    Component: <ContactRoute key={Paths.CONTACT} path={Paths.CONTACT} />,
+    Component: <Route key={Paths.CONTACT} path={Paths.CONTACT} element={<ContactRoute />} />,
+    //Component: <ContactRoute key={Paths.CONTACT} path={Paths.CONTACT} />,
     name: 'Contact',
     path: Paths.CONTACT,
     prefetchImages: [imgLeaves, imgOverhead1]
@@ -215,10 +228,12 @@ function Routes() {
   }
 
   return (
-    <AnimatedRoutes>
-      {routes.map(route => route.Component)}
-      <Redirect to={Paths.HOME} from={Paths.HOME} default noThrow />
-    </AnimatedRoutes>
+    <AnimatePresence exitBeforeEnter>
+      <RRoutes>
+        {routes.map(route => route.Component)}
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </RRoutes>
+    </AnimatePresence>
   );
 }
 export default Routes;

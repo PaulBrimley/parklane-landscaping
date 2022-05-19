@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 /** routes **/

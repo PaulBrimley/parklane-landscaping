@@ -28,9 +28,7 @@ import WeatherIcon from '../components/atoms/icons/Weather.icon';
 /** images **/
 const { imgGrass, imgHome, logoAnniversary, logoMain2 } = images;
 
-interface IHomeRouteProps extends ComponentProps<any> {
-  path: string;
-}
+interface IHomeRouteProps extends ComponentProps<any> {}
 function HomeRoute(props: IHomeRouteProps) {
   const { width } = useAppSelector(store => store.app);
   const { offset } = useParallaxEffect({ strength: 0.2 });

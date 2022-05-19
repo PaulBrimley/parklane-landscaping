@@ -1,12 +1,12 @@
-import {ComponentProps} from 'react';
+import { ComponentProps } from 'react';
 import styled from 'styled-components';
 
 /** stores **/
-import {images} from '../stores/Img.store';
+import { images } from '../stores/Img.store';
 
 /** hooks **/
 import useParallaxEffect from '../hooks/useParallaxEffect.hook';
-import {useAppSelector} from '../hooks/useStore.hook';
+import { useAppSelector } from '../hooks/useStore.hook';
 
 /** components **/
 import AnimatedRoute from '../components/atoms/AnimatedRoute';
@@ -15,12 +15,10 @@ import InfoBannerLeft from '../components/molecules/InfoBannerLeft';
 import PageDivider1 from '../components/atoms/PageDivider1';
 import StyledInfoBannerMessage from '../components/styled/StyledInfoBannerMessage';
 import StyledInfoBodyMessage from '../components/styled/StyledInfoBodyMessage';
-import SVGIcon, {SVGTypes} from '../components/atoms/SVGIcon';
+import SVGIcon, { SVGTypes } from '../components/atoms/SVGIcon';
 
 /** images **/
-const { imgLeaves,
-  imgTrees1,
-  imgTreeTrimming } = images;
+const { imgLeaves, imgTrees1, imgTreeTrimming } = images;
 
 interface ITrimmingRoute extends ComponentProps<any> {}
 function TrimmingRoute({ ...otherProps }: ITrimmingRoute) {
@@ -62,7 +60,7 @@ function TrimmingRoute({ ...otherProps }: ITrimmingRoute) {
               <StyledInfoBannerMessage>
                 <div className="title">
                   <div>
-                    <SVGIcon height="100%" width="47px" type={SVGTypes.TREES} style={{fill: 'white', marginRight: '7px'}}/>
+                    <SVGIcon height="100%" width="47px" type={SVGTypes.TREES} style={{ fill: 'white', marginRight: '7px' }} />
                     <span className="isBold">HOA</span>
                   </div>
                   <div>HOA TREE PRUNING</div>
@@ -89,8 +87,8 @@ function TrimmingRoute({ ...otherProps }: ITrimmingRoute) {
         Nothing transforms an outdoor space like beautifully trimmed trees. Through proper pruning techniques your trees add value to your homes. Not only do they provide shade, but they make your community healthier, add to its safety and aesthetic. Parklane tree trimming professionals have the skills to help your community enjoy the benefits of beautifully maintained trees.
       </StyledInfoBodyMessage>
 
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       <div className="trimming-info-subsection">
         <div className="subsection-images">
@@ -141,7 +139,7 @@ const StyledTrimmingRoute = styled(AnimatedRoute)`
       flex: 49% 0 0;
     }
   }
-  @media (max-width: ${({theme}) => theme.mobileWidth}px) {
+  @media (max-width: ${({ theme }) => theme.mobileWidth}px) {
     .trimming-info-subsection {
       flex-direction: column;
       .subsection-images {

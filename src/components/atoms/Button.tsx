@@ -1,6 +1,6 @@
 import { ComponentProps, MouseEvent } from 'react';
 import classNames from 'classnames';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 /** routes **/
