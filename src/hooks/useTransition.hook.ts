@@ -30,6 +30,11 @@ export default function useTransition({ duration = 1, ease = EaseTypes.EASE_IN_O
       x: xEnd,
       y: yEnd
     },
+    exit: {
+      opacity: opacityStart,
+      x: xStart,
+      y: yStart
+    },
     initial: {
       opacity: opacityStart,
       x: xStart,

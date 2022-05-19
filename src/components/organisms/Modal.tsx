@@ -1,6 +1,6 @@
 import { ComponentProps, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import classNames from 'classnames';
 
 /** stores **/
@@ -21,6 +21,7 @@ function Modal({ children, modalID }: IModal) {
   const { modals } = useAppSelector(store => store.app);
   const [modalOpen, setModalOpen] = useState(false);
   const transition = useTransition({
+    duration: 0.25,
     opacityEnd: !modalOpen ? 0 : 1,
     opacityStart: !modalOpen ? 0 : 0
   });
@@ -41,17 +42,21 @@ function Modal({ children, modalID }: IModal) {
     dispatch(setModalStatus({ modalID, open: false }));
   }
 
+  console.log('modalOpen', modalOpen);
+
   return (
     <StyledModal className={classNames({ hidden: !modalOpen })}>
-      <motion.div className="overlay" {...transition} onClick={handleClose}/>
-      <motion.div className="modal">
-        <div className="modal-header">
-          <Close className="close-button" onClick={handleClose} />
-        </div>
-        <div className="modal-body">
-          {children}
-        </div>
-      </motion.div>
+      <AnimatePresence>
+        {modalOpen && <motion.div key="modal-overlay" className="overlay" {...transition} onClick={handleClose} />}
+        {modalOpen && (
+          <motion.div key="modal-main" className="modal" {...transition}>
+            <div className="modal-header">
+              <Close className="close-button" onClick={handleClose} />
+            </div>
+            <div className="modal-body">{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </StyledModal>
   );
 }

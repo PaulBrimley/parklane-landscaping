@@ -170,6 +170,7 @@ const StyledAboutRoute = styled(AnimatedRoute)`
     font-size: 1.5em;
     color: var(--secondary);
     font-weight: 300;
+    line-height: 1.7em;
     li {
       padding-bottom: 10px;
     }

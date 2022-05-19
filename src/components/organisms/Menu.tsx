@@ -23,13 +23,13 @@ function Menu() {
   const { menuCollapsed } = useAppSelector(store => store.app);
   const [hideMenu, setHideMenu] = useState(true);
   const menuContainerTransition = useTransition({
-    duration: 0.5,
+    duration: 0.25,
     ease: EaseTypes.EASE_IN_OUT,
     opacityEnd: menuCollapsed ? 0 : 1,
     opacityStart: menuCollapsed ? 0 : 0
   });
   const menuTransition = useTransition({
-    duration: 0.5,
+    duration: 0.25,
     ease: EaseTypes.EASE_IN_OUT,
     xEnd: menuCollapsed ? '200px' : '0',
     xStart: menuCollapsed ? '200px' : '200px',

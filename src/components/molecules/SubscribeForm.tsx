@@ -1,5 +1,4 @@
-import { ChangeEvent, ComponentProps, useEffect, useState } from 'react';
-import { AxiosError } from 'axios';
+import { ChangeEvent, ComponentProps, useState } from 'react';
 import { Textfit } from 'react-textfit';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
@@ -262,12 +261,6 @@ const StyledSubscribeForm = styled.div`
   }
   @media (max-width: 500px) {
     padding: 20px;
-    .news-letters {
-      flex-direction: column;
-      div:nth-child(n + 2) {
-        display: none;
-      }
-    }
     .receive-emails {
       font-size: 0.8em;
     }

@@ -1,5 +1,6 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, useState } from 'react';
 import styled from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 
 /** stores **/
 import { setModalStatus } from '../stores/App.store';
