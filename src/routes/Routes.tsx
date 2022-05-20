@@ -189,7 +189,7 @@ export const routeArr: IRoute[] = [
     children: [],
     Component: <Route key={Paths.SUBSCRIBE} path={Paths.SUBSCRIBE} element={<SubscribeRoute />} />,
     //Component: <SubscribeRoute key={Paths.SUBSCRIBE} path={Paths.SUBSCRIBE} />,
-    name: 'Get Informed',
+    name: 'Stay Informed',
     path: Paths.SUBSCRIBE,
     prefetchImages: [imgGuyPlanting1, imgNewsLetter1, imgNewsLetter2, imgNewsLetter3]
   },
@@ -198,7 +198,7 @@ export const routeArr: IRoute[] = [
     children: [],
     Component: <Route key={Paths.CONTACT} path={Paths.CONTACT} element={<ContactRoute />} />,
     //Component: <ContactRoute key={Paths.CONTACT} path={Paths.CONTACT} />,
-    name: 'Contact',
+    name: 'Contact Us',
     path: Paths.CONTACT,
     prefetchImages: [imgLeaves, imgOverhead1]
   }
