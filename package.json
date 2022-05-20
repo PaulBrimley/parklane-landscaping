@@ -2,9 +2,12 @@
   "name": "parklane-landscaping-2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://paulbrimley.github.io/parklane-landscaping/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "yarn build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -31,6 +34,7 @@
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "framer-motion": "^6.3.3",
+    "gh-pages": "^4.0.0",
     "google-spreadsheet": "^3.2.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
