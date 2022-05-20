@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/parklane-landscaping/static/css/main.5316cc16.css",
-    "main.js": "/parklane-landscaping/static/js/main.6033af64.js",
+    "main.js": "/parklane-landscaping/static/js/main.c74f0700.js",
     "static/media/img-picture-frame.png": "/parklane-landscaping/static/media/img-picture-frame.1dc1378d6178be471a3f.png",
     "static/media/img-guy-teaching-2.jpeg": "/parklane-landscaping/static/media/img-guy-teaching-2.8a971fa45653bdc9a61c.jpeg",
     "static/media/img-home.jpg": "/parklane-landscaping/static/media/img-home.f39609207a0ccb4e4d68.jpg",
@@ -60,10 +60,10 @@
     "static/media/grass-white.png": "/parklane-landscaping/static/media/grass-white.a4bfa44656cdf50c8804.png",
     "index.html": "/parklane-landscaping/index.html",
     "main.5316cc16.css.map": "/parklane-landscaping/static/css/main.5316cc16.css.map",
-    "main.6033af64.js.map": "/parklane-landscaping/static/js/main.6033af64.js.map"
+    "main.c74f0700.js.map": "/parklane-landscaping/static/js/main.c74f0700.js.map"
   },
   "entrypoints": [
     "static/css/main.5316cc16.css",
-    "static/js/main.6033af64.js"
+    "static/js/main.c74f0700.js"
   ]
 }
