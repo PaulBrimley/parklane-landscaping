@@ -15,7 +15,6 @@ interface IAppState {
   companyInfo: ICompanyInfo;
   isMobile: boolean;
   menuCollapsed: boolean;
-  modals: Record<string, boolean>;
   width: number;
 }
 const initialState: IAppState = {
@@ -31,21 +30,14 @@ const initialState: IAppState = {
   },
   isMobile: false,
   menuCollapsed: true,
-  modals: {},
   width: 0
 };
 export const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    registerModal(state: IAppState, action: PayloadAction<string>) {
-      state.modals[action?.payload] = false;
-    },
     setMenuCollapsed(state: IAppState, action: PayloadAction<boolean>) {
       state.menuCollapsed = action?.payload;
-    },
-    setModalStatus(state: IAppState, action: PayloadAction<{ modalID: string; open: boolean; }>) {
-      state.modals[action?.payload?.modalID] = action?.payload?.open;
     },
     setWidth(state: IAppState, action: PayloadAction<number>) {
       state.isMobile = action?.payload <= Theme.mobileWidth;
@@ -54,5 +46,5 @@ export const appSlice = createSlice({
   },
   extraReducers: {}
 });
-export const { registerModal, setMenuCollapsed, setModalStatus, setWidth } = appSlice.actions;
+export const { setMenuCollapsed, setWidth } = appSlice.actions;
 export default appSlice.reducer;

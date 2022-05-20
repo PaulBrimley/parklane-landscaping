@@ -6,10 +6,10 @@ import { unwrapResult } from '@reduxjs/toolkit';
 
 /** stores **/
 import { sendEmail } from '../../stores/Email.store';
-import { setModalStatus } from '../../stores/App.store';
 
 /** hooks **/
 import { useAppDispatch, useAppSelector } from '../../hooks/useStore.hook';
+import { useModal } from '../contexts/modal.context';
 
 /** components **/
 import Button from '../atoms/Button';
@@ -20,12 +20,11 @@ import { Loader4 } from 'styled-icons/remix-line';
 import { images } from '../../stores/Img.store';
 const { imgNewsLetter1, imgNewsLetter2, imgNewsLetter3 } = images;
 
-interface ISubscribeForm extends ComponentProps<any> {
-  modalID?: string;
-}
-function SubscribeForm({ modalID }: ISubscribeForm) {
+interface ISubscribeForm extends ComponentProps<any> {}
+function SubscribeForm({ ...otherProps }: ISubscribeForm) {
   const dispatch = useAppDispatch();
   const { templateIDs } = useAppSelector(store => store.email);
+  const { setModalOpen } = useModal();
   const [checkbox, setCheckbox] = useState(false);
   const [form, setForm] = useState({
     email: '',
@@ -51,7 +50,7 @@ function SubscribeForm({ modalID }: ISubscribeForm) {
         })
       ).then(unwrapResult);
       toast.success('Contact request submitted successfully');
-      if (modalID) dispatch(setModalStatus({ modalID, open: false }));
+      setModalOpen(false);
       resetForm();
     } catch (err: any) {
       if (err instanceof Error) toast.error(err.message);

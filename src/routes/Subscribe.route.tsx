@@ -1,21 +1,19 @@
-import { ComponentProps, useState } from 'react';
+import { ComponentProps } from 'react';
 import styled from 'styled-components';
-import { AnimatePresence } from 'framer-motion';
 
 /** stores **/
-import { setModalStatus } from '../stores/App.store';
 import { images } from '../stores/Img.store';
 
 /** hooks **/
 import useParallaxEffect from '../hooks/useParallaxEffect.hook';
-import { useAppDispatch, useAppSelector } from '../hooks/useStore.hook';
+import { useAppSelector } from '../hooks/useStore.hook';
+import { useModal } from '../components/contexts/modal.context';
 
 /** components **/
 import AnimatedRoute from '../components/atoms/AnimatedRoute';
 import Button from '../components/atoms/Button';
 import InfoBanner from '../components/molecules/InfoBanner';
 import InfoBannerLeft from '../components/molecules/InfoBannerLeft';
-import Modal from '../components/organisms/Modal';
 import PageDivider1 from '../components/atoms/PageDivider1';
 import PageDivider2 from '../components/atoms/PageDivider2';
 import StyledInfoBannerMessage from '../components/styled/StyledInfoBannerMessage';
@@ -27,10 +25,9 @@ const { imgGuyPlanting1, imgNewsLetter1, imgNewsLetter2, imgNewsLetter3, imgNews
 
 interface ISubscribeRoute extends ComponentProps<any> {}
 function SubscribeRoute({ ...otherProps }: ISubscribeRoute) {
-  const dispatch = useAppDispatch();
   const { width } = useAppSelector(store => store.app);
   const { offset } = useParallaxEffect({ strength: 0.2 });
-  const modalID = 'subscribe';
+  const { setModalContent, setModalOpen } = useModal();
 
   function calcBackgroundPosition() {
     let offset = 30;
@@ -45,7 +42,8 @@ function SubscribeRoute({ ...otherProps }: ISubscribeRoute) {
     return size;
   }
   function handleOpenModal() {
-    dispatch(setModalStatus({ modalID, open: true }));
+    setModalContent(<SubscribeForm />);
+    setModalOpen(true);
   }
 
   return (
@@ -126,10 +124,6 @@ function SubscribeRoute({ ...otherProps }: ISubscribeRoute) {
           <img src={imgNewsLetter6} alt="news letter 6" />
         </div>
       </div>
-
-      <Modal modalID={modalID}>
-        <SubscribeForm modalID={modalID} />
-      </Modal>
     </StyledSubscribeRoute>
   );
 }

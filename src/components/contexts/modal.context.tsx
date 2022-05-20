@@ -1,59 +1,75 @@
-import { ComponentProps, useEffect, useState } from 'react';
+import { ComponentProps, createContext, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
 import classNames from 'classnames';
 
-/** stores **/
-import { registerModal, setModalStatus } from '../../stores/App.store';
-
 /** hooks **/
-import { useAppSelector, useAppDispatch } from '../../hooks/useStore.hook';
 import useTransition from '../../hooks/useTransition.hook';
 
 /** components **/
 import { Close } from 'styled-icons/evil';
 
-interface IModal extends ComponentProps<any> {
-  modalID: string;
+interface IModalContext {
+  modalContent?: ReactNode;
+  modalOpen: boolean;
+  setModalContent: (modalContent?: ReactNode) => void;
+  setModalOpen: (modalOpen: boolean) => void;
 }
-function Modal({ children, modalID }: IModal) {
-  const dispatch = useAppDispatch();
-  const { modals } = useAppSelector(store => store.app);
-  const [modalOpen, setModalOpen] = useState(false);
-  const transition = useTransition({
-    duration: 0.25,
-    opacityEnd: !modalOpen ? 0 : 1,
-    opacityStart: !modalOpen ? 0 : 0
-  });
+const ModalContext = createContext<IModalContext  | null>(null);
+function useModal() {
+  const context = useContext(ModalContext);
+  if (!context) throw new Error('useModal must be used within ModalProvider');
+  const { modalContent, setModalContent, modalOpen, setModalOpen } = context;
 
-  useEffect(() => {
-    if (!Object.prototype.hasOwnProperty.call(modals, modalID)) dispatch(registerModal(modalID));
-  }, [modalID]);
-  useEffect(() => {
-    if (Object.prototype.hasOwnProperty.call(modals, modalID)) setModalOpen(modals[modalID] ?? false);
-  }, [modals]);
   useEffect(() => {
     let type = 'auto';
     if (modalOpen) type = 'hidden';
     document.body.style.overflow = type;
   }, [modalOpen]);
 
-  function handleClose() {
-    dispatch(setModalStatus({ modalID, open: false }));
-  }
+  return {
+    modalContent,
+    modalOpen,
+    setModalContent,
+    setModalOpen
+  };
+}
+function ModalProvider(props: any) {
+  const [modalContent, setModalContent] = useState(undefined);
+  const [modalOpen, setModalOpen] = useState(false);
+  return <ModalContext.Provider value={{ modalContent, modalOpen, setModalContent, setModalOpen }} {...props} />;
+}
 
-  console.log('modalOpen', modalOpen);
+function Modal({ ...otherProps }: ComponentProps<any>) {
+  const { modalContent, modalOpen, setModalContent, setModalOpen } = useModal();
+  const transition = useTransition({
+    duration: 0.25,
+    opacityEnd: !modalOpen ? 0 : 1,
+    opacityStart: !modalOpen ? 0 : 0
+  });
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') setModalOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (modalOpen) document.addEventListener('keydown', handleKeyPress, true);
+    else document.removeEventListener('keydown', handleKeyPress, true);
+  }, [modalOpen]);
+  
+  function handleClose() {
+    setModalOpen(false);
+  }
 
   return (
     <StyledModal className={classNames({ hidden: !modalOpen })}>
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={() => setModalContent()}>
         {modalOpen && <motion.div key="modal-overlay" className="overlay" {...transition} onClick={handleClose} />}
         {modalOpen && (
           <motion.div key="modal-main" className="modal" {...transition}>
             <div className="modal-header">
               <Close className="close-button" onClick={handleClose} />
             </div>
-            <div className="modal-body">{children}</div>
+            <div className="modal-body">{modalContent}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -121,4 +137,4 @@ const StyledModal = styled.div`
     }
   }
 `;
-export default Modal;
+export { Modal, ModalProvider, useModal };
