@@ -1,5 +1,6 @@
 import { Dispatch, createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './index';
+
 /** images **/
 import facebookLogo from '../assets/img/icon-facebook.png';
 import grassDark from '../assets/img/grass-dark.png';
@@ -12,6 +13,7 @@ import imgFenceBroken from '../assets/img/img-fence-broken.jpg';
 import imgFenceRepair from '../assets/img/img-fence-repair.jpg';
 import imgFlowers1 from '../assets/img/img-flowers-1.jpg';
 import imgFlowers2 from '../assets/img/img-flowers-2.jpg';
+import imgFoxGroveVideoThumbnail from '../assets/img/img-fox-grove-video-thumbnail.jpg';
 import imgGrass from '../assets/img/img-grass.jpg';
 import imgGuyKneeling from '../assets/img/img-guy-kneeling.jpg';
 import imgGuyPlanting1 from '../assets/img/img-guy-planting-1.png';
@@ -98,7 +100,7 @@ function prefetchImage(imgSrc: string): Promise<HTMLImageElement> {
 }
 
 export const images = {
-  facebookLogo: facebookLogo,
+  facebookLogo,
   grassDark,
   grassWhite,
   imgCarnival,
@@ -109,6 +111,7 @@ export const images = {
   imgFenceRepair,
   imgFlowers1,
   imgFlowers2,
+  imgFoxGroveVideoThumbnail,
   imgGrass,
   imgGuyKneeling,
   imgGuyPlanting1,

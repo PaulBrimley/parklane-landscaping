@@ -28,7 +28,7 @@ import SubscribeRoute from './Subscribe.route';
 import TrimmingRoute from './Trimming.route';
 
 /** images **/
-const { imgCarnival, imgColoredPencils, imgFence1, imgFenceBroken, imgFenceRepair, imgFlowers1, imgGrass, imgGuyPlanting1, imgGuyPlanting2, imgGuyTeaching2, imgHome, imgLandscapeRendering, imgLawnMower1, imgLawnMower2, imgLeaves, imgLighting1, imgLighting2, imgLighting3, imgMonument1, imgMonument2, imgMonument3, imgMonument4, imgMonument5, imgMonument6, imgMonument7, imgMonument8, imgNewsLetter1, imgNewsLetter2, imgNewsLetter3, imgOverhead1, imgOverhead2, imgOverhead3, imgParklaneFamily, imgPictureFrame, imgSprinklers1, imgSprinklers2, imgTrees1, imgTrees2, imgTreeTrimming, logoAnniversary, logoMain } = images;
+const { imgCarnival, imgColoredPencils, imgFence1, imgFenceBroken, imgFenceRepair, imgFlowers1, imgFoxGroveVideoThumbnail, imgGrass, imgGuyPlanting1, imgGuyPlanting2, imgGuyTeaching2, imgHome, imgLandscapeRendering, imgLawnMower1, imgLawnMower2, imgLeaves, imgLighting1, imgLighting2, imgLighting3, imgMonument1, imgMonument2, imgMonument3, imgMonument4, imgMonument5, imgMonument6, imgMonument7, imgMonument8, imgNewsLetter1, imgNewsLetter2, imgNewsLetter3, imgOverhead1, imgOverhead2, imgOverhead3, imgParklaneFamily, imgPictureFrame, imgSprinklers1, imgSprinklers2, imgTrees1, imgTrees2, imgTreeTrimming, logoAnniversary, logoMain } = images;
 
 export enum Paths {
   ABOUT = '/about',
@@ -67,7 +67,7 @@ export const routeArr: IRoute[] = [
     //Component: <HomeRoute key={Paths.HOME} path={Paths.HOME} />,
     name: 'Home',
     path: Paths.HOME,
-    prefetchImages: [imgGrass, imgHome, logoAnniversary]
+    prefetchImages: [imgFoxGroveVideoThumbnail, imgGrass, imgHome, logoAnniversary]
   },
   {
     active: true,
