@@ -1,7 +1,9 @@
 {
   "files": {
     "main.css": "/parklane-landscaping/static/css/main.5316cc16.css",
-    "main.js": "/parklane-landscaping/static/js/main.c74f0700.js",
+    "main.js": "/parklane-landscaping/static/js/main.52403dc6.js",
+    "static/media/video-fox-grove-large.mp4": "/parklane-landscaping/static/media/video-fox-grove-large.2cad737b7c047a8e3f78.mp4",
+    "static/media/video-fox-grove-medium.mp4": "/parklane-landscaping/static/media/video-fox-grove-medium.88814198fd3fc21674bd.mp4",
     "static/media/img-picture-frame.png": "/parklane-landscaping/static/media/img-picture-frame.1dc1378d6178be471a3f.png",
     "static/media/img-guy-teaching-2.jpeg": "/parklane-landscaping/static/media/img-guy-teaching-2.8a971fa45653bdc9a61c.jpeg",
     "static/media/img-home.jpg": "/parklane-landscaping/static/media/img-home.f39609207a0ccb4e4d68.jpg",
@@ -38,6 +40,7 @@
     "static/media/img-monument-1.jpg": "/parklane-landscaping/static/media/img-monument-1.69f33dc866c7cf644e68.jpg",
     "static/media/img-sprinklers-2.jpg": "/parklane-landscaping/static/media/img-sprinklers-2.1a55720c7139d30987c2.jpg",
     "static/media/img-flowers-2.jpg": "/parklane-landscaping/static/media/img-flowers-2.8cc2898d905b400a2e80.jpg",
+    "static/media/img-fox-grove-video-thumbnail.jpg": "/parklane-landscaping/static/media/img-fox-grove-video-thumbnail.91c094f9c35fc26d8aa7.jpg",
     "static/media/img-fence-1.jpg": "/parklane-landscaping/static/media/img-fence-1.95de388998f8bab909a0.jpg",
     "static/media/img-overhead-2.jpg": "/parklane-landscaping/static/media/img-overhead-2.bd497bf9a6157da843dc.jpg",
     "static/media/img-overhead-1.jpg": "/parklane-landscaping/static/media/img-overhead-1.c50140933897372b48c9.jpg",
@@ -60,10 +63,10 @@
     "static/media/grass-white.png": "/parklane-landscaping/static/media/grass-white.a4bfa44656cdf50c8804.png",
     "index.html": "/parklane-landscaping/index.html",
     "main.5316cc16.css.map": "/parklane-landscaping/static/css/main.5316cc16.css.map",
-    "main.c74f0700.js.map": "/parklane-landscaping/static/js/main.c74f0700.js.map"
+    "main.52403dc6.js.map": "/parklane-landscaping/static/js/main.52403dc6.js.map"
   },
   "entrypoints": [
     "static/css/main.5316cc16.css",
-    "static/js/main.c74f0700.js"
+    "static/js/main.52403dc6.js"
   ]
 }
