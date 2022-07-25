@@ -21,7 +21,7 @@ import StyledInfoBodyMessage from '../components/styled/StyledInfoBodyMessage';
 import SubscribeForm from '../components/molecules/SubscribeForm';
 
 /** images **/
-const { imgGuyPlanting1, imgNewsLetter1, imgNewsLetter2, imgNewsLetter3, imgNewsLetter4, imgNewsLetter5, imgNewsLetter6 } = images;
+const { imgGuyPlanting1, imgNewsLetter1, imgNewsLetter2, imgNewsLetter3, imgNewsLetter4, imgNewsLetter5, imgNewsLetter6, imgNewsLetter7 } = images;
 
 interface ISubscribeRoute extends ComponentProps<any> {}
 function SubscribeRoute({ ...otherProps }: ISubscribeRoute) {
@@ -115,7 +115,7 @@ function SubscribeRoute({ ...otherProps }: ISubscribeRoute) {
           <img src={imgNewsLetter3} alt="news letter 3" />
         </div>
         <div>
-          <img src={imgNewsLetter4} alt="news letter 4" />
+          <img src={imgNewsLetter7} alt="news letter 7" />
         </div>
         <div>
           <img src={imgNewsLetter5} alt="news letter 5" />

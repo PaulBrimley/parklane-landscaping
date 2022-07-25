@@ -83,7 +83,7 @@ function LightingRoute({ ...otherProps }: ILightingRoute) {
       <div className="lighting-header uppercase">HOA Landscape Lighting</div>
 
       <StyledInfoBodyMessage fontSize="1.6em" margin="0 var(--side-margin)">
-        Your community is your pride and joy. Once Parklane has built your new monument, planted flower beds, trees and added beautiful landscape features, you’ll want to highlight them. Adding landscape and garden lighting is a great way to accentuate your community’s best features and make your HOA a safer place. A great lighting scheme helps raise the value of a community. Consider adding outdoor lighting for your next landscaping project to make your HOA warm and inviting.
+        Your community is your pride and joy. Once Parklane has built your new monument, planted flower beds and trees and added beautiful landscape features, you'll want to highlight them. Adding landscape lighting is a great way to accent your landscape's best features and make your HOA stand out above the rest.
       </StyledInfoBodyMessage>
 
       <br />
@@ -96,7 +96,7 @@ function LightingRoute({ ...otherProps }: ILightingRoute) {
         </div>
         <div className="subsection-info">
           <StyledInfoBodyMessage fontSize="1.6em" margin="0 0 10px 0">
-            If you are looking to start a new HOA community landscape project, consider the value of adding outdoor lighting. A well-lit neighborhood increases curb appeal by offering a warm and inviting place for your family and friends. Not only does outdoor lighting extend your living space, it can offer huge safety and security benefits. Highlight your HOA’s beautiful lawns, gardens, and other landscaping features with outdoor lighting!
+            If you are looking to start a new HOA community landscape project, consider the value of adding outdoor lighting. A well-lit neighborhood increases curb appeal by offering a warm and inviting place for your family and friends. A lighting scheme can also offer safety and security benefits. Highlight you HOA's beautiful lawns, gardens, and other landscaping features with outdoor lighting!
           </StyledInfoBodyMessage>
           <StyledInfoBodyMessage fontSize="1.6em" margin="0">
             For more information on HOA landscape lighting or tips on how you can enhance your landscape community at night, contact us today! Parklane Landscaping will provide you with a free estimate on your next project.

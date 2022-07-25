@@ -20,7 +20,7 @@ import StyledInfoBannerMessage from '../components/styled/StyledInfoBannerMessag
 import StyledInfoBodyMessage from '../components/styled/StyledInfoBodyMessage';
 
 /** images **/
-const { imgGuyPlanting2, imgGuyTeaching2 } = images;
+const { imgGuyPlanting2, imgGuyTeaching2, imgGuyTrimming1, imgGuyTrimming2 } = images;
 
 interface IServicesRoute extends ComponentProps<any> {}
 function ServicesRoute({ ...otherProps }: IServicesRoute) {
@@ -46,7 +46,7 @@ function ServicesRoute({ ...otherProps }: IServicesRoute) {
     <StyledServicesRoute>
       <InfoBanner
         style={{
-          backgroundImage: `url(${imgGuyPlanting2})`,
+          backgroundImage: `url(${imgGuyTrimming1})`,
           backgroundPosition: `0 calc(${calcBackgroundPosition()}px + ${offset.y}px)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: calcBackgroundSize()
@@ -151,7 +151,7 @@ const StyledServicesRoute = styled(AnimatedRoute)`
     margin: 10px var(--side-margin) 0;
     .subsection-image {
       flex: 1 1 40%;
-      background: url(${imgGuyTeaching2}) no-repeat center / cover;
+      background: url(${imgGuyTrimming2}) no-repeat center / cover;
       margin-bottom: 0.7em;
     }
     .subsection-info {

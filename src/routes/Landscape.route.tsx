@@ -99,7 +99,7 @@ function LandscapeRoute({ ...otherProps }: ILandscapeRoute) {
       <div className="landscape-header-2">Landscape Design</div>
 
       <StyledInfoBodyMessage fontSize="1.6em" margin="0 var(--side-margin) 20px">
-        Parklane Landscaping takes pride in ensuring that every one of our properties look their best. Consequently, our design approach is imperative when it comes to making landscape suggestions to our clients. We understand that well-designed communal landscapes should exude balance, beauty and order; all the while providing a welcoming environment for residents, guests and prospective home buyers.
+        Parklane Landscaping takes pride in ensuring that every one of our properties look their best. Consequently, our design approach is that well-designed communal landscapes should exude balance, beauty and order, sustainability and maintainable; all the while providing a welcoming environment for residents, guests and prospective home buyers.
       </StyledInfoBodyMessage>
 
       <div className="landscape-info-subsection">
@@ -110,10 +110,10 @@ function LandscapeRoute({ ...otherProps }: ILandscapeRoute) {
         </div>
         <div className="subsection-info">
           <StyledInfoBodyMessage fontSize="1.6em" margin="0 0 10px 0">
-            As we start a new landscape project, we take into consideration three things, the aesthetic of the client, the survivability of plant materials, and the impact our choices make on the community. Flowers and trees are investments. It is our goal to make sure that the investment brings forth a good return to the community. Choice landscape adds value to a property and gives it a sense of warmth and welcome.
+            As we start a new landscape project, we take into consideration three things, the aesthetic of the original design, the survivability of plant materials, and the impact our choices make on the environment. Landscape expenditures are investments. And, it is our goal to make sure that this investment saves money over time, is maintenance driven, and enhances the community in ways that will provide the curb appeal necessary for homeowners to feel a sense of pride as they leave and re-enter the community they call home. Enhancing and updating the landscaping keeps the HOA current and desirable for those who wish to invest in the community. And finally, investing in the HOA landscapes helps maintain and in many cases improve property values over time, a wonderful benefit as a homeowner goes to sell their home.
           </StyledInfoBodyMessage>
           <StyledInfoBodyMessage fontSize="1.6em" margin="0">
-            Once Parklane understands the goals of the community, we create the vision. Photos are key in the development of every landscape design project. Using drone photography, we capture an overall view of the entire area being modified. This allows us to make renderings for clients using suggested plant materials. We then take those images and our design team creates digital landscape plans to present to our clients. Once approval is made on the final design, everything is scheduled for Parklane to turn the vision into a reality.
+            There is no better landscape company to help guide an HOA through a design and hence investment process that will provide returns for years to come.
           </StyledInfoBodyMessage>
         </div>
       </div>

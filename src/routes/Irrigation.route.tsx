@@ -83,7 +83,7 @@ function IrrigationRoute({ ...otherProps }: IIrrigationRoute) {
       <div className="irrigation-header uppercase">Irrigation Repairs & Installations</div>
 
       <StyledInfoBodyMessage fontSize="1.6em" margin="0 var(--side-margin)">
-        During our ten years in business, Parklane has recognized the need for licensed irrigators in the HOA industry. After being asked if we could do SAWS audits or repair an irrigation system we decided to invest in educating our own team members in irrigation. As a result, Parklane now has three licensed irrigators who regularly perform monthly audits on all of our HOA properties. When the need arises, our licensed irrigators can repair or even install an entire irrigation system.
+        During the past decade, Parklane has trained and ensured Texas certification for each of its licensed irrigators. Our review and care of an HOA's irrigation system is thorough and informed. In addition to the monthly on-site irrigation system audits that maintain the efficiency of a well functioning irrigation system, Parklane is qualified to submit any of the SAWS-based audits now required by city ordinance. And, as participating members of the San Antonio Irrigation Association, Parklane Landscaping certified irrigators foster industry relationships that keep our professionals informed of developments in water management as they relate to HOA irrigation systems.
       </StyledInfoBodyMessage>
 
       <br />

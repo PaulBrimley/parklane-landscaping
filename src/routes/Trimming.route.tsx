@@ -84,8 +84,12 @@ function TrimmingRoute({ ...otherProps }: ITrimmingRoute) {
       <div className="trimming-header uppercase">HOA Tree Pruning</div>
 
       <StyledInfoBodyMessage fontSize="1.6em" margin="0 var(--side-margin)">
-        Nothing transforms an outdoor space like beautifully trimmed trees. Through proper pruning techniques your trees add value to your homes. Not only do they provide shade, but they make your community healthier, add to its safety and aesthetic. Parklane tree trimming professionals have the skills to help your community enjoy the benefits of beautifully maintained trees.
+        Nothing transforms an outdoor space like beautifully manicured trees. Through proper pruning techniques trees add value to your HOA. Not only do they provide shade that tends to cool your environment, they also clean air by providing oxygen, making the surrounding areas healthier. Parklane tree pruning professionals have the skills to help your community enjoy the benefits of beautifully maintained trees. For mor information on our tree care programs, please contact us today! Parklane will provide you with a free estimate on your next project.
       </StyledInfoBodyMessage>
+
+      {/*<StyledInfoBodyMessage fontSize="1.6em" margin="0 var(--side-margin)">
+        Nothing transforms an outdoor space like beautifully trimmed trees. Through proper pruning techniques your trees add value to your homes. Not only do they provide shade, but they make your community healthier, add to its safety and aesthetic. Parklane tree trimming professionals have the skills to help your community enjoy the benefits of beautifully maintained trees.
+      </StyledInfoBodyMessage>*/}
 
       <br />
       <br />

@@ -20,6 +20,8 @@ import imgGuyPlanting1 from '../assets/img/img-guy-planting-1.png';
 import imgGuyPlanting2 from '../assets/img/img-guy-planting-2.jpg';
 import imgGuyTeaching from '../assets/img/img-guy-teaching.jpg';
 import imgGuyTeaching2 from '../assets/img/img-guy-teaching-2.jpeg';
+import imgGuyTrimming1 from '../assets/img/img-guy-trimming-1.jpeg';
+import imgGuyTrimming2 from '../assets/img/img-guy-trimming-2.jpeg';
 import imgHillsAtAlamoRanch from '../assets/img/img-hills-at-alamo-ranch.jpg';
 import imgHome from '../assets/img/img-home.jpg';
 import imgIrrigationSeal from '../assets/img/img-irrigation-seal.png';
@@ -46,6 +48,7 @@ import imgNewsLetter3 from '../assets/img/img-news-letter-3.jpeg';
 import imgNewsLetter4 from '../assets/img/img-news-letter-4.jpeg';
 import imgNewsLetter5 from '../assets/img/img-news-letter-5.jpeg';
 import imgNewsLetter6 from '../assets/img/img-news-letter-6.jpeg';
+import imgNewsLetter7 from '../assets/img/img-news-letter-7.jpeg';
 import imgOverhead1 from '../assets/img/img-overhead-1.jpg';
 import imgOverhead2 from '../assets/img/img-overhead-2.jpg';
 import imgOverhead3 from '../assets/img/img-overhead-3.png';
@@ -118,6 +121,8 @@ export const images = {
   imgGuyPlanting2,
   imgGuyTeaching,
   imgGuyTeaching2,
+  imgGuyTrimming1,
+  imgGuyTrimming2,
   imgHillsAtAlamoRanch,
   imgHome,
   imgIrrigationSeal,
@@ -144,6 +149,7 @@ export const images = {
   imgNewsLetter4,
   imgNewsLetter5,
   imgNewsLetter6,
+  imgNewsLetter7,
   imgOverhead1,
   imgOverhead2,
   imgOverhead3,

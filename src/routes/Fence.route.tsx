@@ -84,7 +84,7 @@ function FenceRoute({ ...otherProps }: IFenceRoute) {
       <div className="fence-header uppercase">HOA Fence Installation</div>
 
       <StyledInfoBodyMessage fontSize="1.6em" margin="0 var(--side-margin)">
-        If you live in an HOA community, you understand the value of fences. Especially since HOA communities are usually surrounded by them. When one is torn down due to storm or a fallen tree or even an accidental car mishap, rebuilding the fence becomes priority one. Matching the exact materials, colors and quick reparation is our specialty. These small details all play a part in making sure the community stays looking its best. That is why Parklane has in-house masons and fence repair teams. We know how important it is to you. So it is important to us.
+        Many HOAs, use either wooden or stone fences to delineate property lines. When one is torn down due to storm or a fallen tree or even an accidental car mishap, rebuilding the fence becomes priority one. Matching the exact materials, colors and quick reparation is our specialty, all the while making sure the community stays looking its best. That is why Parklane provides services that can repair or install wood or stone fences and/or walls.
       </StyledInfoBodyMessage>
 
       <br />

@@ -1,6 +1,5 @@
-import { ComponentProps, useMemo, useRef, useState } from 'react';
+import { ComponentProps } from 'react';
 import styled from 'styled-components';
-import classNames from 'classnames';
 
 /** stores **/
 import { images } from '../stores/Img.store';
@@ -27,33 +26,19 @@ import StyledInfoBodyMessage from '../components/styled/StyledInfoBodyMessage';
 import WeatherIcon from '../components/atoms/icons/Weather.icon';
 
 /** images **/
-import videoFoxGroveMedium from '../assets/video/video-fox-grove-medium.mp4';
-import videoFoxGroveLarge from '../assets/video/video-fox-grove-large.mp4';
-const { imgFoxGroveVideoThumbnail, imgGrass, imgHome, logoAnniversary, logoMain2 } = images;
+const { imgGrass, imgHome, logoAnniversary, logoMain2 } = images;
 
 
 interface IHomeRouteProps extends ComponentProps<any> {}
 function HomeRoute(props: IHomeRouteProps) {
   const { width } = useAppSelector(store => store.app);
   const { offset } = useParallaxEffect({ strength: 0.2 });
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const videoSrc = useMemo(() => {
-    if (width >= 1080) return videoFoxGroveLarge;
-    return videoFoxGroveMedium;
-  }, [width]);
 
 
   function calcBackgroundPosition() {
     let offset = 10;
     if (width < 800) offset = 100 - (width / 800) * 100 + 10;
     return offset;
-  }
-  function handleVideoDataLoaded() {
-    setTimeout(async () => {
-      setVideoLoaded(true);
-      if (videoRef?.current) await videoRef.current.play();
-    }, 1000);
   }
 
   return (
@@ -127,24 +112,6 @@ function HomeRoute(props: IHomeRouteProps) {
       <StyledInfoBodyMessage fontSize="1.6em" margin="0 var(--side-margin)">
         For over 10 years, Parklane Landscaping has served the botanical needs of HOA communities as a full service landscape firm and remains the only landscaping company to specialize in the beautification of HOA properties.
       </StyledInfoBodyMessage>
-
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <div className="video-container">
-        <div className={classNames('video-thumbnail', { visible: !videoLoaded })} />
-        <video
-          ref={videoRef}
-          className={classNames('video', { visible: videoLoaded })}
-          playsInline
-          muted
-          loop
-          src={videoSrc}
-          onLoadedData={handleVideoDataLoaded}
-        />
-      </div>
 
       <br />
       <br />
@@ -228,32 +195,6 @@ const StyledHomeRoute = styled(AnimatedRoute)`
   }
   .service-guide {
     margin: 20px var(--side-margin) 10px;
-  }
-  .video-container {
-    margin: 0 var(--side-margin);
-    position: relative;
-    .video {
-      width: 100%;
-      opacity: 0;
-      transition: all 0.2s;
-      &.visible {
-        opacity: 1;
-      }
-    }
-    .video-thumbnail {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      filter: blur(5px);
-      background: url(${imgFoxGroveVideoThumbnail}) no-repeat 50% 100% / contain;
-      opacity: 0;
-      transition: all 0.5s;
-      &.visible {
-        opacity: 1;
-      }
-    }
   }
   .weather-link {
     position: absolute;

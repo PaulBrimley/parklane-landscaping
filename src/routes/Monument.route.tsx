@@ -1,5 +1,6 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
+import classNames from 'classnames';
 
 /** stores **/
 import { images } from '../stores/Img.store';
@@ -18,12 +19,20 @@ import StyledInfoBodyMessage from '../components/styled/StyledInfoBodyMessage';
 import SVGIcon, { SVGTypes } from '../components/atoms/SVGIcon';
 
 /** images **/
-const { imgMonument1, imgMonument4, imgMonument5, imgMonument10 } = images;
+import videoFoxGroveMedium from '../assets/video/video-fox-grove-medium.mp4';
+import videoFoxGroveLarge from '../assets/video/video-fox-grove-large.mp4';
+const { imgFoxGroveVideoThumbnail, imgMonument1, imgMonument4, imgMonument5, imgMonument10 } = images;
 
 interface IMonumentRoute extends ComponentProps<any> {}
 function MonumentRoute({ ...otherProps }: IMonumentRoute) {
   const { companyInfo, width } = useAppSelector(store => store.app);
   const { offset } = useParallaxEffect({ strength: 0.2 });
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoSrc = useMemo(() => {
+    if (width >= 1080) return videoFoxGroveLarge;
+    return videoFoxGroveMedium;
+  }, [width]);
 
   function calcBackgroundPosition() {
     let offset = 40;
@@ -38,6 +47,12 @@ function MonumentRoute({ ...otherProps }: IMonumentRoute) {
     if (width < 700) size = '150%';
     if (width < 600) size = '190%';
     return size;
+  }
+  function handleVideoDataLoaded() {
+    setTimeout(async () => {
+      setVideoLoaded(true);
+      if (videoRef?.current) await videoRef.current.play();
+    }, 1000);
   }
 
   return (
@@ -83,7 +98,7 @@ function MonumentRoute({ ...otherProps }: IMonumentRoute) {
       <div className="monument-header uppercase">HOA Monument</div>
 
       <StyledInfoBodyMessage fontSize="1.6em" margin="0 var(--side-margin) 20px">
-        From logo design, to architectural rendering, to brick and mortar, Parklane has the capability to create the monument of your HOA’s dreams. We know how important entryways are to every HOA community. A monument sets the stage for the rest of the property. They can be various architectural styles and designs. Landscape of course plays a huge part in the final monument project. Parklane has had the privilege of creating and revitalizing many in and around the San Antonio area. Whether it is designing from scratch or refurbishing portions of them, our end goal is to add to their overall appeal and value.
+        From HOA logo design, to masonry creations, from state of the art lighting installations, to water-saving irrigation systems, Parklane Landscaping has the capability to create the monument an HOA envisions. A well-designed monument sets the stage for how the community portrays itself to the public. Parklane Landscaping specializes in monument creation for developers, monument revitalization for those HOA entries looking for a thoughtful refresh, and monument repair for those that experience the occasional damage.
       </StyledInfoBodyMessage>
 
       <div className="monument-info-subsection lower">
@@ -99,6 +114,23 @@ function MonumentRoute({ ...otherProps }: IMonumentRoute) {
 
       <div className="monument-info-images">
         <img src={imgMonument5} alt="monument 5" style={{ height: '230px' }} />
+      </div>
+
+      <br/>
+      <br/>
+      <br/>
+
+      <div className="video-container">
+        <div className={classNames('video-thumbnail', { visible: !videoLoaded })} />
+        <video
+          ref={videoRef}
+          className={classNames('video', { visible: videoLoaded })}
+          playsInline
+          muted
+          loop
+          src={videoSrc}
+          onLoadedData={handleVideoDataLoaded}
+        />
       </div>
 
       <div className="contact-info">For estimates call {companyInfo.phone}</div>
@@ -159,6 +191,32 @@ const StyledMonumentRoute = styled(AnimatedRoute)`
     }
     .subsection-info {
       flex: 49% 0 0;
+    }
+  }
+  .video-container {
+    margin: 0 var(--side-margin);
+    position: relative;
+    .video {
+      width: 100%;
+      opacity: 0;
+      transition: all 0.2s;
+      &.visible {
+        opacity: 1;
+      }
+    }
+    .video-thumbnail {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      filter: blur(5px);
+      background: url(${imgFoxGroveVideoThumbnail}) no-repeat 50% 100% / contain;
+      opacity: 0;
+      transition: all 0.5s;
+      &.visible {
+        opacity: 1;
+      }
     }
   }
   @media (max-width: ${({ theme }) => theme.mobileWidth}px) {
