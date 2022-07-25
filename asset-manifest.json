@@ -1,16 +1,18 @@
 {
   "files": {
     "main.css": "/parklane-landscaping/static/css/main.5316cc16.css",
-    "main.js": "/parklane-landscaping/static/js/main.52403dc6.js",
+    "main.js": "/parklane-landscaping/static/js/main.b4506f35.js",
     "static/media/video-fox-grove-large.mp4": "/parklane-landscaping/static/media/video-fox-grove-large.2cad737b7c047a8e3f78.mp4",
     "static/media/video-fox-grove-medium.mp4": "/parklane-landscaping/static/media/video-fox-grove-medium.88814198fd3fc21674bd.mp4",
     "static/media/img-picture-frame.png": "/parklane-landscaping/static/media/img-picture-frame.1dc1378d6178be471a3f.png",
     "static/media/img-guy-teaching-2.jpeg": "/parklane-landscaping/static/media/img-guy-teaching-2.8a971fa45653bdc9a61c.jpeg",
     "static/media/img-home.jpg": "/parklane-landscaping/static/media/img-home.f39609207a0ccb4e4d68.jpg",
     "static/media/img-news-letter-3.jpeg": "/parklane-landscaping/static/media/img-news-letter-3.44f62a769e351f69c6fb.jpeg",
+    "static/media/img-news-letter-7.jpeg": "/parklane-landscaping/static/media/img-news-letter-7.5a5b52c5e4706da10b33.jpeg",
     "static/media/img-overhead-3.png": "/parklane-landscaping/static/media/img-overhead-3.a743eba3e17d4323a900.png",
     "static/media/img-irrigation-seal.png": "/parklane-landscaping/static/media/img-irrigation-seal.9d8157804b4954fe0fb4.png",
     "static/media/img-news-letter-2.jpeg": "/parklane-landscaping/static/media/img-news-letter-2.c4edc71d810850c68ed7.jpeg",
+    "static/media/img-guy-trimming-1.jpeg": "/parklane-landscaping/static/media/img-guy-trimming-1.a7bd543261e75ca7a82e.jpeg",
     "static/media/img-news-letter-6.jpeg": "/parklane-landscaping/static/media/img-news-letter-6.1d540b366ca9efb024e1.jpeg",
     "static/media/img-fence-2.jpg": "/parklane-landscaping/static/media/img-fence-2.afb82f20edd21eb49e52.jpg",
     "static/media/img-guy-planting-1.png": "/parklane-landscaping/static/media/img-guy-planting-1.0dfafe150f29568fc427.png",
@@ -22,6 +24,7 @@
     "static/media/logo-anniversary.png": "/parklane-landscaping/static/media/logo-anniversary.842a90ff1d7d8152c565.png",
     "static/media/img-colored-pencils.png": "/parklane-landscaping/static/media/img-colored-pencils.3872d881c03bee989ba8.png",
     "static/media/img-guy-planting-2.jpg": "/parklane-landscaping/static/media/img-guy-planting-2.62e8b6d58ab439e3b712.jpg",
+    "static/media/img-guy-trimming-2.jpeg": "/parklane-landscaping/static/media/img-guy-trimming-2.7d3938aa5c76867375dd.jpeg",
     "static/media/img-lighting-1.jpg": "/parklane-landscaping/static/media/img-lighting-1.45e34296128b20a5181a.jpg",
     "static/media/img-landscape-rendering.jpg": "/parklane-landscaping/static/media/img-landscape-rendering.7ff8d87b8d568d58d7ee.jpg",
     "static/media/img-trees-2.jpg": "/parklane-landscaping/static/media/img-trees-2.a2926692f7b6fb29bfa7.jpg",
@@ -63,10 +66,10 @@
     "static/media/grass-white.png": "/parklane-landscaping/static/media/grass-white.a4bfa44656cdf50c8804.png",
     "index.html": "/parklane-landscaping/index.html",
     "main.5316cc16.css.map": "/parklane-landscaping/static/css/main.5316cc16.css.map",
-    "main.52403dc6.js.map": "/parklane-landscaping/static/js/main.52403dc6.js.map"
+    "main.b4506f35.js.map": "/parklane-landscaping/static/js/main.b4506f35.js.map"
   },
   "entrypoints": [
     "static/css/main.5316cc16.css",
-    "static/js/main.52403dc6.js"
+    "static/js/main.b4506f35.js"
   ]
 }
