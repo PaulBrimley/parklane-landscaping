@@ -28,17 +28,22 @@ function ServicesRoute({ ...otherProps }: IServicesRoute) {
   const { offset } = useParallaxEffect({ strength: 0.2 });
 
   function calcBackgroundPosition() {
-    let strength = -0.02;
-    if (width < 750) strength = 0.2;
-    if (width < 600) strength = 0.4;
-    if (width < 400) strength = 0.6;
-    if (width < 350) strength = 0.7;
+    let strength = 0.2;
+    if (width < 900) strength = 0.3;
+    if (width < 800) strength = 0.4;
+    if (width < 700) strength = 0.5;
+    if (width < 600) strength = 0.55;
+    if (width < 550) strength = 0.65;
+    if (width < 500) strength = 0.8;
+    //if (width < 350) strength = 0.7;
     return width * strength - 350;
   }
   function calcBackgroundSize() {
-    let size = '160%';
-    if (width < 500) size = '800px';
-    if (width < 400) size = '600px';
+    let size = '120%';
+    if (width < 700) size = '135%';
+    //if (width < 800) size = '800px';
+    if (width < 600) size = '150%';
+    if (width < 550) size = 'cover';
     return size;
   }
 

@@ -108,7 +108,6 @@ function AboutRoute({ ...otherProps }: ComponentProps<any>) {
         <li>Parklane understands the different facets of an HOA’s landscape infrastructure and helps HOA boards understand the complexity and scale of the HOA’s landscape footprint.</li>
         <li>Parklane recognizes the value of maintaining an HOA’s landscape investment and cares for it in ways that sustain a community’s appeal over time.</li>
         <li>Parklane is responsive to the immediacy of HOA emergencies, whether it be an irrigation problem, a fallen tree or other urgent matter needing quick attention.</li>
-        <li>Parklane is easy to work with, on time and on budget.</li>
         <li>Parklane is easy to work with, budget-conscious and timely.</li>
       </ul>
 
@@ -117,7 +116,7 @@ function AboutRoute({ ...otherProps }: ComponentProps<any>) {
         <li>Parklane Landscaping serves as a developer’s marketing partner while an HOA is developing by assuring quality landscaping and impressive curb appeal.</li>
         <li>Parklane is responsive to the immediacy of homeowner issues and resolves them quickly.</li>
         <li>Parklane Landscaping has the ability to scale its services as communities build out.</li>
-        <li>Parklane Landscaping is design-oriented but maintenance driven and can quickly edit landscaping to reduce landscaping costs over the short-term and long term.</li>
+        <li>Parklane Landscaping is design-oriented but maintenance driven and can quickly edit landscaping to reduce landscaping costs over the short-term and the long term.</li>
         <li>Parklane is consistent, on budget and timely.</li>
       </ul>
 
@@ -127,7 +126,7 @@ function AboutRoute({ ...otherProps }: ComponentProps<any>) {
         <li>Parklane attends HOA Board meetings, Landscape Committee meetings and annual meetings to support its unique understanding of an HOA’s landscape infrastructure and helps explain this complexity to board members and homeowners.</li>
         <li>Parklane assigns a dedicated account manager to each property for direct communications and rapid response times.</li>
         <li>Parklane Landscaping is happy to present key HOA educational presentations.</li>
-        <li>Parklane is easy to work with, facilitating transparent communication between the board and property manager, is highly-skilled in project management, budget- conscious and timely.</li>
+        <li>Parklane is easy to work with, facilitating transparent communication between the board and property manager, is highly-skilled in project management, budget-conscious and timely.</li>
       </ul>
 
       {/*<div className="about-info-images">

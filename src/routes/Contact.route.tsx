@@ -155,7 +155,7 @@ function ContactRoute({ ...otherProps }: IContactRoute) {
       </div>
 
       <StyledInfoBodyMessage align="center" color="colorPrimary" fontSize="1.6em" margin="0 var(--side-margin)">
-        Parklane Landscaping is a full service HOA landscape company. We serve greater San Antonio and its surrounding municipalities. If you have questions or would like a bid for your next HOA maintenance contract or project, feel free to contact us at...
+        Parklane Landscaping is a full service HOA landscape company. We serve greater the San Antonio and its surrounding municipalities. If you have questions or would like a bid for your next HOA maintenance contract or project, feel free to contact us at...
       </StyledInfoBodyMessage>
       <StyledInfoBodyMessage align="center" color="colorPrimary" fontSize="1.4em" fontWeight="400" lineHeight="1.2em" margin="10px var(--side-margin)">
         {companyInfo.phone} (M-F 9A-5p) | Text or Voice
