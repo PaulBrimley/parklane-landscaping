@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ModalProvider } from './components/contexts/modal.context';
 
@@ -12,11 +12,11 @@ import store from './stores';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <HashRouter>
+  <BrowserRouter>
     <Provider store={store}>
       <ModalProvider>
         <App />
       </ModalProvider>
     </Provider>
-  </HashRouter>
+  </BrowserRouter>
 );
