@@ -1,5 +1,6 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, useState } from 'react';
 import styled from 'styled-components';
+import classNames from 'classnames';
 
 /** stores **/
 import { images } from '../stores/Img.store';
@@ -19,6 +20,7 @@ import PageDivider2 from '../components/atoms/PageDivider2';
 import StyledInfoBannerMessage from '../components/styled/StyledInfoBannerMessage';
 import StyledInfoBodyMessage from '../components/styled/StyledInfoBodyMessage';
 import SubscribeForm from '../components/molecules/SubscribeForm';
+import { CloseCircle } from 'styled-icons/evaicons-solid';
 
 /** images **/
 const { imgGuyPlanting1, imgNewsLetter1, imgNewsLetter2, imgNewsLetter3, imgNewsLetter4, imgNewsLetter5, imgNewsLetter6, imgNewsLetter7 } = images;
@@ -28,6 +30,7 @@ function SubscribeRoute({ ...otherProps }: ISubscribeRoute) {
   const { width } = useAppSelector(store => store.app);
   const { offset } = useParallaxEffect({ strength: 0.2 });
   const { setModalContent, setModalOpen } = useModal();
+  const [selectedNewsLetter, setSelectedNewsLetter] = useState<string | null>(null);
 
   function calcBackgroundPosition() {
     let offset = 30;
@@ -104,24 +107,30 @@ function SubscribeRoute({ ...otherProps }: ISubscribeRoute) {
         </Button>
       </div>
 
-      <div className="news-letters">
-        <div>
-          <img src={imgNewsLetter1} alt="news letter 1" />
+      <div className="news-letter-container">
+        <div className="news-letters">
+          <div>
+            <img src={imgNewsLetter1} alt="news letter 1" onClick={() => setSelectedNewsLetter(imgNewsLetter1)} />
+          </div>
+          <div>
+            <img src={imgNewsLetter2} alt="news letter 2" onClick={() => setSelectedNewsLetter(imgNewsLetter2)} />
+          </div>
+          <div>
+            <img src={imgNewsLetter3} alt="news letter 3" onClick={() => setSelectedNewsLetter(imgNewsLetter3)} />
+          </div>
+          <div>
+            <img src={imgNewsLetter7} alt="news letter 7" onClick={() => setSelectedNewsLetter(imgNewsLetter7)} />
+          </div>
+          <div>
+            <img src={imgNewsLetter5} alt="news letter 5" onClick={() => setSelectedNewsLetter(imgNewsLetter5)} />
+          </div>
+          <div>
+            <img src={imgNewsLetter6} alt="news letter 6" onClick={() => setSelectedNewsLetter(imgNewsLetter6)}/>
+          </div>
         </div>
-        <div>
-          <img src={imgNewsLetter2} alt="news letter 2" />
-        </div>
-        <div>
-          <img src={imgNewsLetter3} alt="news letter 3" />
-        </div>
-        <div>
-          <img src={imgNewsLetter7} alt="news letter 7" />
-        </div>
-        <div>
-          <img src={imgNewsLetter5} alt="news letter 5" />
-        </div>
-        <div>
-          <img src={imgNewsLetter6} alt="news letter 6" />
+        <div className={classNames('selected-news-letter', { active: !!selectedNewsLetter })}>
+          <CloseCircle className="close-button" onClick={() => setSelectedNewsLetter(null)}/>
+          {selectedNewsLetter && <img src={selectedNewsLetter} alt="selected news letter"/>}
         </div>
       </div>
     </StyledSubscribeRoute>
@@ -134,14 +143,57 @@ const StyledSubscribeRoute = styled(AnimatedRoute)`
     padding-top: 50px;
     margin-bottom: 40px;
   }
-  .news-letters {
-    margin: 40px var(--side-margin);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    div {
+  .news-letter-container {
+    position: relative;
+    .news-letters {
+      margin: 40px var(--side-margin);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      div {
+        img {
+          width: 100%;
+          cursor: pointer;
+          box-shadow: 0 0 3px var(--transparent);
+          &:hover {
+            box-shadow: 0 0 3px var(--grey-medium);
+          }
+        }
+      }
+    }
+    .selected-news-letter {
+      padding: 25px;
+      background-color: var(--white);
+      box-shadow: 0 0 5px var(--grey-medium);
+      border-radius: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s;
+      &.active {
+        opacity: 1;
+        width: 50%;
+        pointer-events: unset;
+      }
       img {
         width: 100%;
+      }
+      .close-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: var(--grey-medium-light);
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover {
+          color: var(--primary);
+        }
       }
     }
   }
