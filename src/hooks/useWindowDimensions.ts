@@ -24,10 +24,10 @@ export default function useWindowDimensions(ref: RefObject<HTMLElement>): IWindo
     function handleResize() {
       setWindowDimensions( getWindowDimensions(ref) );
     }
-
+    handleResize();
     window.addEventListener( 'resize', handleResize );
     return () => window.removeEventListener( 'resize', handleResize );
-  }, []);
+  }, [ref]);
 
   return windowDimensions;
 }

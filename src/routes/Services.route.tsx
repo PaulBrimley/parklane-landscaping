@@ -182,6 +182,7 @@ const StyledServicesRoute = styled(AnimatedRoute)`
         height: 300px;
         margin-right: 0;
         margin-bottom: 10px;
+        background: url(${imgGuyTrimming2}) no-repeat top / cover;
       }
       .subsection-info {
         padding-left: 0;
