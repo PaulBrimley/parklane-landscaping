@@ -28,22 +28,24 @@ function ServicesRoute({ ...otherProps }: IServicesRoute) {
   const { offset } = useParallaxEffect({ strength: 0.2 });
 
   function calcBackgroundPosition() {
-    let strength = 0.2;
-    if (width < 900) strength = 0.3;
+    let strength = 0.3;
+    if (width < 900) strength = 0.35;
     if (width < 800) strength = 0.4;
     if (width < 700) strength = 0.5;
     if (width < 600) strength = 0.55;
-    if (width < 550) strength = 0.65;
-    if (width < 500) strength = 0.8;
-    //if (width < 350) strength = 0.7;
+    if (width < 550) strength = 0.6;
+    if (width < 450) strength = 0.7;
+    if (width < 400) strength = 0.8;
     return width * strength - 350;
   }
   function calcBackgroundSize() {
-    let size = '120%';
+    let size = '110%';
+    if (width < 800) size = '120%';
     if (width < 700) size = '135%';
-    //if (width < 800) size = '800px';
     if (width < 600) size = '150%';
-    if (width < 550) size = 'cover';
+    if (width < 550) size = '160%';
+    if (width < 450) size = '170%';
+    if (width < 400) size = '180%';
     return size;
   }
 
@@ -52,7 +54,7 @@ function ServicesRoute({ ...otherProps }: IServicesRoute) {
       <InfoBanner
         style={{
           backgroundImage: `url(${imgGuyTrimming1})`,
-          backgroundPosition: `0 calc(${calcBackgroundPosition()}px + ${offset.y}px)`,
+          backgroundPosition: `right calc(${calcBackgroundPosition()}px + ${offset.y}px)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: calcBackgroundSize()
         }}

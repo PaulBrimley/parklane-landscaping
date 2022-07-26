@@ -2,7 +2,7 @@
   "name": "parklane-landscaping-2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://paulbrimley.github.io/parklane-landscaping/",
+  "homepage": "https://parklanelandscaping.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
