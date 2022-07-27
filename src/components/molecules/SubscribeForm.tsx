@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { unwrapResult } from '@reduxjs/toolkit';
 
 /** stores **/
-import { sendEmail } from '../../stores/Email.store';
+import { sendEmail, testRequest } from '../../stores/Email.store';
 
 /** hooks **/
 import { useAppDispatch, useAppSelector } from '../../hooks/useStore.hook';
@@ -55,11 +55,12 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
     try {
       validateForm();
       await dispatch(
-        sendEmail({
+        testRequest({})
+        /*sendEmail({
           form,
           serviceID: serviceIDs.SUBSCRIBE_SERVICE_ID,
           templateID: templateIDs.SUBSCRIBE_TEMPLATE_ID
-        })
+        })*/
       ).then(unwrapResult);
       toast.success('Contact request submitted successfully');
       setModalOpen(false);

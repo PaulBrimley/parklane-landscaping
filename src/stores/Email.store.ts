@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 /** api **/
-import { IServerResponse, post, Paths as ApiPaths } from '../api/api';
+import { get, IServerResponse, post, Paths as ApiPaths } from '../api/api';
 
 const CONTACT_SERVICE_ID = process.env.REACT_APP_CONTACT_SERVICE_ID as string;
 const CONTACT_TEMPLATE_ID = process.env.REACT_APP_CONTACT_TEMPLATE_ID as string;
@@ -18,6 +18,11 @@ export const sendEmail = createAsyncThunk('email/sendEmail', async ({ config, fo
     template_params: form,
     user_id: USER_ID
   }, { headers: { contentType: 'application/json' } });
+});
+export const testRequest = createAsyncThunk('email/testRequest', async ({ config }: { config?: AxiosRequestConfig }) => {
+  const response = await get<AxiosResponse<{ [key: string]: any }>>('https://swapi.dev/api//people/1');
+
+  console.log('response', response);
 });
 
 
