@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5316cc16.css",
-    "main.js": "/static/js/main.5573da29.js",
+    "main.js": "/static/js/main.2d78dc4b.js",
     "static/media/video-fox-grove-large.mp4": "/static/media/video-fox-grove-large.2cad737b7c047a8e3f78.mp4",
     "static/media/video-fox-grove-medium.mp4": "/static/media/video-fox-grove-medium.88814198fd3fc21674bd.mp4",
     "static/media/img-picture-frame.png": "/static/media/img-picture-frame.1dc1378d6178be471a3f.png",
@@ -66,10 +66,10 @@
     "static/media/grass-white.png": "/static/media/grass-white.a4bfa44656cdf50c8804.png",
     "index.html": "/index.html",
     "main.5316cc16.css.map": "/static/css/main.5316cc16.css.map",
-    "main.5573da29.js.map": "/static/js/main.5573da29.js.map"
+    "main.2d78dc4b.js.map": "/static/js/main.2d78dc4b.js.map"
   },
   "entrypoints": [
     "static/css/main.5316cc16.css",
-    "static/js/main.5573da29.js"
+    "static/js/main.2d78dc4b.js"
   ]
 }
