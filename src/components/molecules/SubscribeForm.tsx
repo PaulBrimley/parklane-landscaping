@@ -14,6 +14,7 @@ import { useModal } from '../contexts/modal.context';
 /** components **/
 import Button from '../atoms/Button';
 import PageDivider2 from '../atoms/PageDivider2';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Loader4 } from 'styled-icons/remix-line';
 
 /** images **/
@@ -23,12 +24,14 @@ const { imgNewsLetter1, imgNewsLetter2, imgNewsLetter3 } = images;
 interface ISubscribeForm extends ComponentProps<any> {}
 function SubscribeForm({ ...otherProps }: ISubscribeForm) {
   const dispatch = useAppDispatch();
-  const { templateIDs } = useAppSelector(store => store.email);
+  const { reCAPTCHASiteKey } = useAppSelector(store => store.app);
+  const { serviceIDs, templateIDs } = useAppSelector(store => store.email);
   const { setModalOpen } = useModal();
   const [checkbox, setCheckbox] = useState(false);
   const [form, setForm] = useState({
     email: '',
-    name: ''
+    name: '',
+    'g-recaptcha-response': ''
   });
   const [submitting, setSubmitting] = useState(false);
 
@@ -38,6 +41,14 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
       [e.target.name]: e.target.value
     });
   }
+  function handleReCAPTCHAChange(token: string | null) {
+    if (token) {
+      setForm({
+        ...form,
+        'g-recaptcha-response': token
+      });
+    }
+  }
   async function handleSubmit() {
     if (!checkbox) return;
     setSubmitting(true);
@@ -46,7 +57,8 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
       await dispatch(
         sendEmail({
           form,
-          templateID: templateIDs.SUBSCRIPTION_TEMPLATE_ID
+          serviceID: serviceIDs.SUBSCRIBE_SERVICE_ID,
+          templateID: templateIDs.SUBSCRIBE_TEMPLATE_ID
         })
       ).then(unwrapResult);
       toast.success('Contact request submitted successfully');
@@ -62,13 +74,15 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
     setCheckbox(false);
     setForm({
       email: '',
-      name: ''
+      name: '',
+      'g-recaptcha-response': ''
     });
   }
   function validateForm() {
     const missingFields = [];
-    if (!form.name) missingFields.push('name');
     if (!form.email) missingFields.push('email');
+    if (!form.name) missingFields.push('name');
+    if (!form['g-recaptcha-response']) missingFields.push('complete reCAPTCHA');
     if (missingFields.length) throw new Error(`Please fill in the required form fields: ${missingFields.join(', ')}`);
   }
 
@@ -98,6 +112,7 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
       <form className="contact-form">
         <input className="contact-form-input" placeholder="NAME" name="name" value={form.name} onChange={handleChange} />
         <input className="contact-form-input" placeholder="EMAIL" name="email" value={form.email} onChange={handleChange} />
+        <ReCAPTCHA className="contact-form-re-captcha" sitekey={reCAPTCHASiteKey} onChange={handleReCAPTCHAChange} />
         <label className="contact-form-checkbox-label">
           <input className="contact-form-checkbox" type="checkbox" name="checkbox" checked={checkbox} value={checkbox.toString()} onChange={e => setCheckbox(e.target.checked)} />
           <span>Yes, I would like to receive the Parklane Landscaping information E-mail blasts for my HOA community!</span>
@@ -106,7 +121,7 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
           {submitting ? (
             <Loader4 className="loading" />
           ) : (
-            <Button classes="submit-form-button" disabled={submitting || !checkbox} fontSize="0.8em" fontWeight="400" onClick={handleSubmit} shadowColor="colorTransparent" width="40px" padding="7px 14px 6px">
+            <Button classes="submit-form-button" disabled={submitting || !checkbox || !form['g-recaptcha-response']} fontSize="0.8em" fontWeight="400" onClick={handleSubmit} shadowColor="colorTransparent" width="40px" padding="7px 14px 6px">
               Send
             </Button>
           )}
@@ -179,6 +194,9 @@ const StyledSubscribeForm = styled.div`
           box-shadow: 0 0 2px var(--danger);
         }
       }
+    }
+    .contact-form-re-captcha {
+      margin-top: 2px;
     }
     .contact-form-controls {
       display: flex;

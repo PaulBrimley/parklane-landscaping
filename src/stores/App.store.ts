@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Theme from '../theme';
 
+const RE_CAPTCHA_SITE_KEY = process.env.REACT_APP_RE_CAPTCHA_SITE_KEY as string;
+
 interface ICompanyInfo {
   city: string;
   email: string;
@@ -15,6 +17,7 @@ interface IAppState {
   companyInfo: ICompanyInfo;
   isMobile: boolean;
   menuCollapsed: boolean;
+  reCAPTCHASiteKey: string;
   width: number;
 }
 const initialState: IAppState = {
@@ -30,6 +33,7 @@ const initialState: IAppState = {
   },
   isMobile: false,
   menuCollapsed: true,
+  reCAPTCHASiteKey: RE_CAPTCHA_SITE_KEY,
   width: 0
 };
 export const appSlice = createSlice({

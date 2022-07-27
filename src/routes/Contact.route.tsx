@@ -29,7 +29,7 @@ interface IContactRoute extends ComponentProps<any> {}
 function ContactRoute({ ...otherProps }: IContactRoute) {
   const dispatch = useAppDispatch();
   const { companyInfo, width } = useAppSelector(store => store.app);
-  const { templateIDs } = useAppSelector(store => store.email);
+  const { serviceIDs, templateIDs } = useAppSelector(store => store.email);
   const { offset } = useParallaxEffect({ strength: 0.2 });
 
   const [form, setForm] = useState({
@@ -67,6 +67,7 @@ function ContactRoute({ ...otherProps }: IContactRoute) {
       await dispatch(
         sendEmail({
           form,
+          serviceID: serviceIDs.CONTACT_SERVICE_ID,
           templateID: templateIDs.CONTACT_TEMPLATE_ID
         })
       ).then(unwrapResult);
