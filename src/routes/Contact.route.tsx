@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, useState } from 'react';
+import { ChangeEvent, ComponentProps, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { unwrapResult } from '@reduxjs/toolkit';
@@ -17,6 +17,7 @@ import Button from '../components/atoms/Button';
 import InfoBanner from '../components/molecules/InfoBanner';
 import InfoBannerLeft from '../components/molecules/InfoBannerLeft';
 import PageDivider1 from '../components/atoms/PageDivider1';
+import ReCAPTCHA from 'react-google-recaptcha';
 import ServiceList from '../components/atoms/ServiceList';
 import StyledInfoBannerMessage from '../components/styled/StyledInfoBannerMessage';
 import StyledInfoBodyMessage from '../components/styled/StyledInfoBodyMessage';
@@ -28,7 +29,8 @@ const { imgFlowers2, logoAnniversary, imgOverhead1 } = images;
 interface IContactRoute extends ComponentProps<any> {}
 function ContactRoute({ ...otherProps }: IContactRoute) {
   const dispatch = useAppDispatch();
-  const { companyInfo, width } = useAppSelector(store => store.app);
+  const reCAPTCHARef = useRef<ReCAPTCHA>(null);
+  const { companyInfo, reCAPTCHASiteKey, width } = useAppSelector(store => store.app);
   const { serviceIDs, templateIDs } = useAppSelector(store => store.email);
   const { offset } = useParallaxEffect({ strength: 0.2 });
 
@@ -36,7 +38,8 @@ function ContactRoute({ ...otherProps }: IContactRoute) {
     email: '',
     message: '',
     name: '',
-    phone: ''
+    phone: '',
+    'g-recaptcha-response': ''
   });
   const [submitting, setSubmitting] = useState(false);
 
@@ -59,6 +62,14 @@ function ContactRoute({ ...otherProps }: IContactRoute) {
       ...form,
       [e.target.name]: e.target.value
     });
+  }
+  function handleReCAPTCHAChange(token: string | null) {
+    if (token) {
+      setForm({
+        ...form,
+        'g-recaptcha-response': token
+      });
+    }
   }
   async function handleSubmit() {
     setSubmitting(true);
@@ -84,8 +95,10 @@ function ContactRoute({ ...otherProps }: IContactRoute) {
       email: '',
       message: '',
       name: '',
-      phone: ''
+      phone: '',
+      'g-recaptcha-response': ''
     });
+    if (reCAPTCHARef?.current) reCAPTCHARef.current.reset();
   }
   function validateForm() {
     const missingFields = [];
@@ -93,6 +106,7 @@ function ContactRoute({ ...otherProps }: IContactRoute) {
     if (!form.email) missingFields.push('email');
     if (!form.phone) missingFields.push('phone');
     if (!form.message) missingFields.push('message');
+    if (!form['g-recaptcha-response']) missingFields.push('complete reCAPTCHA');
     if (missingFields.length) throw new Error(`Please fill in the required form fields: ${missingFields.join(', ')}`);
   }
 
@@ -143,11 +157,12 @@ function ContactRoute({ ...otherProps }: IContactRoute) {
           <input className="contact-form-input" placeholder="EMAIL" name="email" value={form.email} onChange={handleChange} />
           <input className="contact-form-input" placeholder="PHONE" name="phone" value={form.phone} onChange={handleChange} />
           <textarea className="contact-form-input" rows={8} placeholder="MESSAGE" name="message" value={form.message} onChange={handleChange} />
+          <ReCAPTCHA ref={reCAPTCHARef} className="contact-form-re-captcha" sitekey={reCAPTCHASiteKey} onChange={handleReCAPTCHAChange} />
           <div className="contact-form-controls">
             {submitting ? (
               <Loader4 className="loading" />
             ) : (
-              <Button classes="submit-form-button" disabled={submitting} fontSize="0.8em" fontWeight="400" onClick={handleSubmit} shadowColor="colorTransparent" width="40px">
+              <Button classes="submit-form-button" disabled={submitting || !form['g-recaptcha-response']} fontSize="0.8em" fontWeight="400" onClick={handleSubmit} shadowColor="colorTransparent" width="40px">
                 Send
               </Button>
             )}
@@ -227,6 +242,9 @@ const StyledContactRoute = styled(AnimatedRoute)`
             box-shadow: 0 0 2px var(--danger);
           }
         }
+      }
+      .contact-form-re-captcha {
+        margin-top: 2px;
       }
       .contact-form-controls {
         display: flex;

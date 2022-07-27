@@ -1,11 +1,11 @@
-import { ChangeEvent, ComponentProps, useState } from 'react';
+import { ChangeEvent, ComponentProps, useRef, useState } from 'react';
 import { Textfit } from 'react-textfit';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { unwrapResult } from '@reduxjs/toolkit';
 
 /** stores **/
-import { sendEmail, testRequest } from '../../stores/Email.store';
+import { sendEmail } from '../../stores/Email.store';
 
 /** hooks **/
 import { useAppDispatch, useAppSelector } from '../../hooks/useStore.hook';
@@ -24,6 +24,7 @@ const { imgNewsLetter1, imgNewsLetter2, imgNewsLetter3 } = images;
 interface ISubscribeForm extends ComponentProps<any> {}
 function SubscribeForm({ ...otherProps }: ISubscribeForm) {
   const dispatch = useAppDispatch();
+  const reCAPTCHARef = useRef<ReCAPTCHA>(null);
   const { reCAPTCHASiteKey } = useAppSelector(store => store.app);
   const { serviceIDs, templateIDs } = useAppSelector(store => store.email);
   const { setModalOpen } = useModal();
@@ -55,12 +56,11 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
     try {
       validateForm();
       await dispatch(
-        testRequest({})
-        /*sendEmail({
+        sendEmail({
           form,
           serviceID: serviceIDs.SUBSCRIBE_SERVICE_ID,
           templateID: templateIDs.SUBSCRIBE_TEMPLATE_ID
-        })*/
+        })
       ).then(unwrapResult);
       toast.success('Contact request submitted successfully');
       setModalOpen(false);
@@ -78,6 +78,7 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
       name: '',
       'g-recaptcha-response': ''
     });
+    if (reCAPTCHARef?.current) reCAPTCHARef.current.reset();
   }
   function validateForm() {
     const missingFields = [];
@@ -113,7 +114,7 @@ function SubscribeForm({ ...otherProps }: ISubscribeForm) {
       <form className="contact-form">
         <input className="contact-form-input" placeholder="NAME" name="name" value={form.name} onChange={handleChange} />
         <input className="contact-form-input" placeholder="EMAIL" name="email" value={form.email} onChange={handleChange} />
-        <ReCAPTCHA className="contact-form-re-captcha" sitekey={reCAPTCHASiteKey} onChange={handleReCAPTCHAChange} />
+        <ReCAPTCHA ref={reCAPTCHARef} className="contact-form-re-captcha" sitekey={reCAPTCHASiteKey} onChange={handleReCAPTCHAChange} />
         <label className="contact-form-checkbox-label">
           <input className="contact-form-checkbox" type="checkbox" name="checkbox" checked={checkbox} value={checkbox.toString()} onChange={e => setCheckbox(e.target.checked)} />
           <span>Yes, I would like to receive the Parklane Landscaping information E-mail blasts for my HOA community!</span>
