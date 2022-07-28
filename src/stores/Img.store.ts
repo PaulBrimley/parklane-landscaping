@@ -16,7 +16,7 @@ import imgFlowers2 from '../assets/img/img-flowers-2.jpg';
 import imgFoxGroveVideoThumbnail from '../assets/img/img-fox-grove-video-thumbnail.jpg';
 import imgGrass from '../assets/img/img-grass.jpg';
 import imgGuyKneeling from '../assets/img/img-guy-kneeling.jpg';
-import imgGuyPlanting1 from '../assets/img/img-guy-planting-1.png';
+import imgGuyPlanting1 from '../assets/img/img-guy-planting-1.jpeg';
 import imgGuyPlanting2 from '../assets/img/img-guy-planting-2.jpg';
 import imgGuyTeaching from '../assets/img/img-guy-teaching.jpg';
 import imgGuyTeaching2 from '../assets/img/img-guy-teaching-2.jpeg';
